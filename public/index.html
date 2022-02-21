@@ -10,7 +10,7 @@
 </head>
 <body>
   <main class="text-center">
-    <h1>👩‍💻 <em>lo-que-quieras</em>.dev.ar</h1>
+    <h1>👩‍💻 <em>loquequieras</em>.dev.ar</h1>
     <p class="text-lg" id="text">
     ¿Queres tener tu dominio <strong>.dev.ar</strong> gratis?
     </p>
@@ -26,11 +26,24 @@
       </a>
     </span>
   </footer>
+  <script src="https://unpkg.com/typewriter-effect@2.3.1/dist/core.js"></script>
   <script>
+    const wait = 1500;
+    const container = document.querySelector('h1 em');
+    const typewriter = new Typewriter(container, {
+      loop: true
+    });
     const match = window.location.search.match('from=([^&]+)');
+    const texts = ['tunombre', 'mitienda', 'loquesea'];
     if (match) {
-      document.querySelector('h1 em').innerHTML = match[1];
+      texts.unshift(match[1])
     }
+    for (text of texts) {
+      typewriter.typeString(text)
+        .pauseFor(wait)
+        .deleteAll();
+    }
+    typewriter.start();
   </script>
 </body>
 </html>
