@@ -1,1 +1,1 @@
-<h1 class="text-4xl font-mono">👩‍💻 .dev.ar</h1>
+<h1 class="text-4xl">👩‍💻 .dev.ar</h1>
