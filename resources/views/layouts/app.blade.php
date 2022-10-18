@@ -22,7 +22,6 @@
             <main>
                 {{ $slot }}
             </main>
-            <!-- Comment here! -->
         </div>
     </body>
 </html>
