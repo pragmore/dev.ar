@@ -9,7 +9,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Styles -->
-        <link rel="stylesheet" href="https://cdn.pragmore.com/2.0.1/solid/blouse.css?font=Poppins&size=16pt&family=sans-serif">
+        <link rel="stylesheet" href="https://cdn.pragmore.com/2.0.6/blouse.css?font=Poppins&size=16pt&family=sans-serif">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- Scripts -->
