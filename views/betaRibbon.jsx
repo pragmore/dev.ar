@@ -1,0 +1,1 @@
+<style dangerouslySetInnerHTML={{__html: `body:after{content:"BETA";position:fixed;width:150px;height:30px;background:#9bc90d;top:12px;right:-48px;text-align:center;font-size:.8em;font-family:sans-serif;font-weight:700;color:#fff;line-height:35px;transform:rotate(45deg)} `}} />
