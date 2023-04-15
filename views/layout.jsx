@@ -5,7 +5,7 @@ import BetaRibbon from './betaRibbon'
 <head>
   <meta charset="UTF-8"/>
   <title>{title}</title>
-  <link rel="stylesheet" href="https://cdn.pragmore.com/2.0.6/blouse.css?font=Poppins&family=sans-serif" />
+  <link rel="stylesheet" href="https://cdn.pragmore.com/2.0.6/blouse.css?font=Poppins&family=sans-serif&size=18pt" />
   <BetaRibbon />
 </head>
 <body>
