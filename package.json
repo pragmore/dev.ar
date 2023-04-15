@@ -5,8 +5,8 @@
   "main": "src/app.js",
   "type": "module",
   "scripts": {
-    "dev:nodemon": "nodemon",
-    "dev:browsersync": "browser-sync start --serveStatic 'public' --proxy localhost:3000 --files '**/*.js' --ignore=node_modules --reload-delay 50",
+    "dev:nodemon": "nodemon -e jsx",
+    "dev:browsersync": "browser-sync start --port=3001 serveStatic 'public' --proxy localhost:3000 --files '**/*.js,**/*.jsx' --ignore=node_modules --reload-delay 50",
     "dev": "npm-run-all --parallel dev:*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/pragmore/dev.ar#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "express-engine-jsx": "^3.5.0"
   },
   "devDependencies": {
     "browser-sync": "^2.29.1",
