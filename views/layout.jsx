@@ -9,7 +9,7 @@ import BetaRibbon from './betaRibbon'
   <BetaRibbon />
 </head>
 <body>
-  <main>
+  <main class="text-center">
     {children}
   </main>
   <Footer />
