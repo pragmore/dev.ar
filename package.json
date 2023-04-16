@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev:nodemon": "nodemon -e jsx",
-    "dev:browsersync": "browser-sync start --port=3001 serveStatic 'public' --proxy localhost:3000 --files '**/*.js,**/*.jsx' --ignore=node_modules --reload-delay 50",
+    "dev:browsersync": "browser-sync start --port=3001 --serveStatic 'public' --proxy localhost:3000 --files '**/*.js,**/*.jsx' --ignore=node_modules --reload-delay 50",
     "dev": "npm-run-all --parallel dev:*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
