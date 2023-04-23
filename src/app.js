@@ -24,7 +24,4 @@ app.get('/', (_, res) => {
 app.listen(process.env.PORT || 3000, async () => {
   console.log('Iniciando app')
   await db.sync()
-  // TODO: Esto esta solo para testing, se borrará después
-  await Domain.build({fqdn: 'google.dev.ar', redirect: 'https://google.com'}).save()
-  await Domain.build({fqdn: 'prueba.dev.ar'}).save()
 })
