@@ -14,3 +14,11 @@ Para ejecutarla en local correr:
 npm install
 npm run dev
 ```
+
+Para ejecutarla en prod (necesita [pm2](https://pm2.keymetrics.io)):
+
+```
+npm ci
+pm2 start src/app.js --watch --ignore-watch node_modules \
+    --name dev.ar --node-args="-r dotenv/config"
+```
