@@ -6,9 +6,9 @@ import Layout from './layout'
   ¿Queres tener tu dominio <strong>.dev.ar</strong> gratis?
   </p>
   <p class="text-lg">
-    <a class="btn main" href="https://docs.google.com/forms/d/e/1FAIpQLSeG3nka7uzQALPTf0oQ6cWZw9dm1h0yMLZucVbbbhwdCFbWEQ/viewform?usp=sf_link">Sumate a la beta 🎉</a>
+    <a class="btn main" href="/sign-up">Sumate a la beta 🎉</a>
   </p>
 
-    <script src="https://unpkg.com/typewriter-effect@2.3.1/dist/core.js" />
+  <script src="https://unpkg.com/typewriter-effect@2.3.1/dist/core.js" />
   <script src="index.js" />
 </Layout>
