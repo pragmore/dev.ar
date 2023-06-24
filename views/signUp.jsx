@@ -32,7 +32,7 @@ import Layout from './layout'
       />
     </p>
 
-    <p><label><input type='checkbox' name='terms' required /> Acepto los <a href='#'>términos y condiciones</a></label></p>
+    <p><label><input type='checkbox' name='terms' required /> Acepto los <a href='/terms' target='_blank'>términos y condiciones</a></label></p>
 
     <p><button className='btn main'>Registrar cuenta y dominio</button></p>
 

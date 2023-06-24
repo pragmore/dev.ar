@@ -50,6 +50,10 @@ app.post('/sign-up', async (req, res) => {
     renderSignUp(req, res)
   }
 })
+app.get('/terms', (_, res) => {
+  res.locals.title = 'Términos y Condiciones | dev.ar'
+  res.render('terms')
+})
 
 app.listen(process.env.PORT || 3000, async () => {
   console.log('Iniciando app')
