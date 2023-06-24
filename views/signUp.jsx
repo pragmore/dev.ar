@@ -36,6 +36,6 @@ import Layout from './layout'
 
     <p><button className='btn main'>Registrar cuenta y dominio</button></p>
 
-    <p>Ya tengo un usuario, <a href='/'>iniciar sesión</a></p>
+    <p>Ya tengo un usuario, <a href='/login'>iniciar sesión</a></p>
   </form>
 </Layout>
