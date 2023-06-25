@@ -1,7 +1,7 @@
 import Layout from './layout'
 
 <Layout>
-  <h1>👩‍💻 Registrate en <em>dev.ar</em></h1>
+  <h1 class="text-center">👩‍💻 Registrate en <em>dev.ar</em></h1>
   <form method='post'>
     <input type='hidden' name='ref' id='ref' value={ referrer } />
 

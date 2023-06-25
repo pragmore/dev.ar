@@ -1,11 +1,11 @@
 import Layout from './layout'
 
 <Layout>
-   <h1>👩‍💻 <em>loquequieras</em>.dev.ar</h1>
-  <p class="text-lg" id="text">
+  <h1 class="text-center">👩‍💻 <em>loquequieras</em>.dev.ar</h1>
+  <p class="text-lg text-center" id="text">
   ¿Queres tener tu dominio <strong>.dev.ar</strong> gratis?
   </p>
-  <p class="text-lg">
+  <p class="text-lg text-center">
     <a class="btn main" href="/sign-up">Sumate a la beta 🎉</a>
   </p>
 

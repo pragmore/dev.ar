@@ -11,7 +11,7 @@ import BetaRibbon from './betaRibbon'
   <BetaRibbon />
 </head>
 <body>
-  <main class="text-center">
+  <main>
     {children}
   </main>
   <Footer />
