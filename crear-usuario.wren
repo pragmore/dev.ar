@@ -1,6 +1,7 @@
-import Layout from './layout'
+import "bialet" for Response
+import "_app/template/layout" for Layout
 
-<Layout>
+var html = Layout.render("Registrate en dev.ar", "
   <h1>👩‍💻 Registrate en <em>dev.ar</em></h1>
   <form method='post'>
     <input type='hidden' name='ref' id='ref' value={ referrer } />
@@ -27,15 +28,16 @@ import Layout from './layout'
         name='fqdn'
         id='fqdn'
         placeholder='dominio.dev.ar'
-        pattern='^[a-z0-9-]{6,}\.dev\.ar$'
+        pattern='^[a-z0-9-]{6,}\\.dev\\.ar$'
         required
       />
     </p>
 
-    <p><label><input type='checkbox' name='terms' required /> Acepto los <a href='/terms' target='_blank'>términos y condiciones</a></label></p>
+    <p><label><input type='checkbox' name='terms' required /> Acepto los <a href='/terminos-y-condiciones' target='_blank'>términos y condiciones</a></label></p>
 
     <p><button className='btn main'>Registrar cuenta y dominio</button></p>
 
     <p>Ya tengo un usuario, <a href='/'>iniciar sesión</a></p>
   </form>
-</Layout>
+")
+Response.out(html)

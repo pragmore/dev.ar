@@ -1,6 +1,7 @@
-import Layout from './layout'
+import "bialet" for Response
+import "_app/template/layout" for Layout
 
-<Layout>
+var html = Layout.render("Terminos y condiciones de dev.ar", "
   <h1>Términos y condiciones de <em>dev.ar</em></h1>
 
   <p>TÉRMINOS Y CONDICIONES DE SERVICIO PARA DEV.AR PROVISTO POR PRAGMORE S.R.L.</p>
@@ -47,7 +48,7 @@ Este punto incluye cualquier otra información que Pragmore S.R.L. considere ina
       </p>
       <p>
 
-        Para denunciar un servicio o subdominio que esté siendo utilizado para fines ilícitos, el canal de contacto es con nuestro Departamento de Investigación a través de: <a href="mailto:abuse@pragmore.com">abuse@pragmore.com</a>. El accionar en las denuncias recibidas estará sujeto a la evaluación y criterio exclusivo de Pragmore S.R.L.
+        Para denunciar un servicio o subdominio que esté siendo utilizado para fines ilícitos, el canal de contacto es con nuestro Departamento de Investigación a través de: <a href='mailto:abuse@pragmore.com'>abuse@pragmore.com</a>. El accionar en las denuncias recibidas estará sujeto a la evaluación y criterio exclusivo de Pragmore S.R.L.
 
       </p>
     </li>
@@ -76,4 +77,5 @@ Estos Términos y Condiciones de Servicio se rigen por y se interpretan de acuer
     </li>
   </ol>
   <p>Fecha de última actualización: <em>24 de junio de 2023</em>.</p>
-</Layout>
+")
+Response.out(html)

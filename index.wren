@@ -1,12 +1,15 @@
 import "bialet" for Response
+import "_app/template/layout" for Layout
 
-Response.out("
-  <html>
-    <head>
-      <title>bialet</title>
-    </head>
-    <body>
-      <h1>bialet</h1>
-    </body>
-  </html>
+var html = Layout.render("dev.ar", "
+  <h1>👩‍💻 <em>loquequieras</em>.dev.ar</h1>
+  <p class='text-lg' id='text'>
+  ¿Queres tener tu dominio <strong>.dev.ar</strong> gratis?
+  </p>
+  <p class='text-lg'>
+    <a class='btn main' href='/crear-usuario'>Sumate a la beta 🎉</a>
+  </p>
+  <script src='https://unpkg.com/typewriter-effect@2.3.1/dist/core.js'></script>
+  <script src='js/index.js'></script>
 ")
+Response.out(html)
