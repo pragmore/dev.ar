@@ -1,12 +1,15 @@
-import "bialet" for Response
+import "bialet" for Response, Request
 import "_app/template/layout" for Layout
+
+var error = false
+var referrer = Request.get("ref")
 
 var html = Layout.render("Registrate en dev.ar", "
   <h1>👩‍💻 Registrate en <em>dev.ar</em></h1>
   <form method='post'>
-    <input type='hidden' name='ref' id='ref' value={ referrer } />
+    <input type='hidden' name='ref' id='ref' value='%( referrer )' />
 
-    { error ? <p className='msg err'>{ error.message }</p> : '' }
+    %( error ? "<p className='msg err'>%( error )</p>" : "" )
 
     <p><label htmlFor='email'>Correo electrónico</label></p>
     <p>
