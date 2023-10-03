@@ -3,7 +3,10 @@ import "bialet" for Db
 Db.migrate("Tabla usuarios", "
   CREATE TABLE usuarios (
     id INTEGER NOT NULL PRIMARY KEY,
-    email TEXT
+    email TEXT,
+    password TEXT,
+    password_hash TEXT,
+    ref INTEGER
   )
 ")
 
