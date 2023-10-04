@@ -44,6 +44,21 @@ class Layout {
 
   static appStyle() { "
     h1 em { color: #bd93f9; font-style: normal }
+    .text-center { text-align: center }
+    .text-lg { font-size: 1.4em; margin-top: 1em 0 }
+    .btn {
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      padding:.8em;
+      font-size: 110\%;
+      margin: auto;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #ffb86c;
+      color: #282a36;
+    }
+    .btn.main { background: #ff79c6 }
     .err{ color: #ff5555 }
   " }
 
