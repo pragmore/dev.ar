@@ -1,5 +1,5 @@
 import "bialet" for Response
-import "_app/template/layout" for Layout
+import "_app/layout" for Layout
 
 var html = Layout.render("Terminos y condiciones de dev.ar", "
   <h1>Términos y condiciones de <em>dev.ar</em></h1>
@@ -33,8 +33,6 @@ Mientras utilice los servicios contratados con Pragmore S.R.L., el usuario no po
         <li>Divulgar o transmitir información ilegal, abusiva, difamatoria, racista, ofensiva, o cualquier otro tipo de información susceptible de objeción, ya sea mediante fotografías, textos, banners publicitarios o enlaces a páginas externas.</li>
         <li>Publicar, transmitir, reproducir, distribuir o explotar cualquier información o software que contenga virus o cualquier otro componente dañino.</li>
         <li>Utilizar software u otro material que no sea original (pirateado), infringir derechos de propiedad intelectual, publicar o facilitar material o recursos sobre hacking, cracking.</li>
-        <li>Instalar cualquier plataforma de Juegos Online ya sea para re-venta como para uso personal.</li>
-        <li>Utilizar software relacionado a Juegos, como por ejemplo sitios web de juegos, foros de juegos y software VOIP para juegos (ej. TeamSpeak).</li>
     </ul>
       <p>
 
