@@ -5,7 +5,6 @@ Db.migrate("Tabla usuarios", "
     id INTEGER NOT NULL PRIMARY KEY,
     email TEXT,
     password TEXT,
-    password_hash TEXT,
     ref INTEGER
   )
 ")

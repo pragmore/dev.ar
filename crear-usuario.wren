@@ -78,7 +78,7 @@ var html = Layout.render("Registrate en dev.ar", "
 
     <p><button className='btn main'>Registrar cuenta y dominio</button></p>
 
-    <p>Ya tengo un usuario, <a href='/'>iniciar sesión</a></p>
+    <p>Ya tengo un usuario, <a href='/iniciar-sesion'>iniciar sesión</a></p>
   </form>
 ")
 Response.out(html)
