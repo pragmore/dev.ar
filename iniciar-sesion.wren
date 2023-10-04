@@ -23,7 +23,7 @@ var html = Layout.render("Iniciar sesión en dev.ar", "
   <form method='post'>
     %( error ? "<p class='msg err'>El correo o la contraseña son incorrectos</p>" : "" )
 
-    <p><label htmlFor='email'>Correo electrónico</label></p>
+    <p><label for='email'>Correo electrónico</label></p>
     <p>
       <input
         type='email'
@@ -34,7 +34,7 @@ var html = Layout.render("Iniciar sesión en dev.ar", "
       />
     </p>
 
-    <p><label htmlFor='password'>Contraseña</label></p>
+    <p><label for='password'>Contraseña</label></p>
     <p>
       <input
         type='password'
@@ -44,7 +44,7 @@ var html = Layout.render("Iniciar sesión en dev.ar", "
       />
     </p>
 
-    <p><button class='btn main'>Registrar cuenta y dominio</button></p>
+    <p><button class='btn main'>Iniciar sesión</button></p>
 
     <p>No tengo un usuario, <a href='/crear-usuario'>crear uno nuevo</a></p>
   </form>

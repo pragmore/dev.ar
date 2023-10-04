@@ -39,7 +39,7 @@ var html = Layout.render("Registrate en dev.ar", "
 
     %( error ? "<p class='msg err'>%( error )</p>" : "" )
 
-    <p><label htmlFor='email'>Correo electrónico</label></p>
+    <p><label for='email'>Correo electrónico</label></p>
     <p>
       <input
         type='email'
@@ -50,7 +50,7 @@ var html = Layout.render("Registrate en dev.ar", "
       />
     </p>
 
-    <p><label htmlFor='password'>Contraseña</label></p>
+    <p><label for='password'>Contraseña</label></p>
     <p>
       <input
         type='password'
@@ -61,7 +61,7 @@ var html = Layout.render("Registrate en dev.ar", "
     </p>
 
     <p>
-      <label htmlFor='fqdn'>Dominio</label>
+      <label for='fqdn'>Dominio</label>
       Debe tener por lo menos 6 letras, números o guión medio y tiene que empezar con una letra.
     </p>
     <p>
