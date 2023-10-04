@@ -6,6 +6,26 @@ class Layout {
     <meta name='viewport' content='width=device-width, initial-scale=1' />
     <link rel='icon' href='data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 00 100 100\"><text y=\".9em\" font-size=\"90\">👩‍💻</text></svg>' />
     <style>
+      *, *:before, *:after { box-sizing: border-box }
+      body{ background: #282a36; color: #f8f8f2; font: 1.3em system-ui; width:90\%; max-width: 30em; margin: 2em auto }
+      h1, form{ text-align: center }
+      a{ color: #ff79c6; text-decoration: none }
+      input, button {
+        padding:.5em;
+        margin:.5em 0 0 0;
+        border-color: #ccc;
+        border-radius: 10px;
+        box-shadow:0 0 15px 4px rgba(0,0,0,0.08);
+        color: inherit;
+        font: inherit;
+        background: inherit;
+        width: 100\%;
+      }
+      input[type='checkbox'] { width: auto }
+      button { color: #282a36; background-color: #ffbbb8; cursor: pointer; border-style: none }
+      footer { margin-top: 2em; text-align: center }
+
+      h1 em { color: #bd93f9; font-style: normal }
       %( betaRibbon() )
     </style>
   </head>
