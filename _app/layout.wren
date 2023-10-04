@@ -26,6 +26,7 @@ class Layout {
       footer { margin-top: 2em; text-align: center }
 
       h1 em { color: #bd93f9; font-style: normal }
+      .err{ color: #ff5555 }
       %( betaRibbon() )
     </style>
   </head>

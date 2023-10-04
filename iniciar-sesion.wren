@@ -21,7 +21,7 @@ if (Request.isPost()) {
 var html = Layout.render("Iniciar sesión en dev.ar", "
   <h1>👩‍💻 Iniciar sesión en <em>dev.ar</em></h1>
   <form method='post'>
-    %( error ? "<p className='msg err'>El correo o la contraseña son incorrectos</p>" : "" )
+    %( error ? "<p class='msg err'>El correo o la contraseña son incorrectos</p>" : "" )
 
     <p><label htmlFor='email'>Correo electrónico</label></p>
     <p>
@@ -44,7 +44,7 @@ var html = Layout.render("Iniciar sesión en dev.ar", "
       />
     </p>
 
-    <p><button className='btn main'>Registrar cuenta y dominio</button></p>
+    <p><button class='btn main'>Registrar cuenta y dominio</button></p>
 
     <p>No tengo un usuario, <a href='/crear-usuario'>crear uno nuevo</a></p>
   </form>

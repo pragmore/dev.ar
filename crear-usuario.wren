@@ -37,7 +37,7 @@ var html = Layout.render("Registrate en dev.ar", "
   <form method='post'>
     <input type='hidden' name='ref' id='ref' value='%( referrer )' />
 
-    %( error ? "<p className='msg err'>%( error )</p>" : "" )
+    %( error ? "<p class='msg err'>%( error )</p>" : "" )
 
     <p><label htmlFor='email'>Correo electrónico</label></p>
     <p>
@@ -76,7 +76,7 @@ var html = Layout.render("Registrate en dev.ar", "
 
     <p><label><input type='checkbox' name='terms' required /> Acepto los <a href='/terminos-y-condiciones' target='_blank'>términos y condiciones</a></label></p>
 
-    <p><button className='btn main'>Registrar cuenta y dominio</button></p>
+    <p><button class='btn main'>Registrar cuenta y dominio</button></p>
 
     <p>Ya tengo un usuario, <a href='/iniciar-sesion'>iniciar sesión</a></p>
   </form>
