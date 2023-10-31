@@ -2,6 +2,7 @@ import "bialet" for Db, User
 
 class Dominio {
   static findByFqdn(fqdn) { Db.one("SELECT * FROM dominios WHERE fqdn = ?", [fqdn]) }
+  static findByUsuario(usuario) { Db.all("SELECT * FROM dominios WHERE usuario = ?", [usuario]) }
 }
 
 class Usuario {
@@ -21,7 +22,9 @@ class Usuario {
   static iniciar(email, password) {
     var usuario = Db.one("SELECT id, password FROM usuarios WHERE email = ?", [email])
     if (usuario) {
-      return User.verify(password, usuario["password"])
+      if (User.verify(password, usuario["password"])) {
+        return usuario["id"]
+      }
     }
     return false
   }

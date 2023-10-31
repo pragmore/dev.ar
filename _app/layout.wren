@@ -59,6 +59,7 @@ class Layout {
       color: #282a36;
     }
     .btn.main { background: #ff79c6 }
+    .ok{ color: #55ff55 }
     .err{ color: #ff5555 }
   " }
 

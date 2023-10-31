@@ -1,4 +1,4 @@
-import "bialet" for Response, Request
+import "bialet" for Response, Request, Session
 import "_app/layout" for Layout
 import "_app/domain" for Usuario
 
@@ -12,6 +12,7 @@ if (Request.isPost()) {
   var idUsuario = Usuario.iniciar(email, password)
   if (idUsuario) {
     // TODO Session
+    Session.new().set("usuario", idUsuario)
     return Response.redirect("/dashboard")
   } else {
     error = true
