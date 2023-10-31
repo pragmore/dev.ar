@@ -37,7 +37,7 @@ var html = Layout.render("Registrate en dev.ar", "
   <form method='post'>
     <input type='hidden' name='ref' id='ref' value='%( referrer )' />
 
-    %( error ? "<p class='msg err'>%( error )</p>" : "" )
+    %( error ? "<p class='msg err'>%( messages )</p>" : "" )
 
     <p><label for='email'>Correo electrónico</label></p>
     <p>
