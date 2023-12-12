@@ -9,4 +9,4 @@ if (dominio) {
   return Response.redirect("%(dominio["redirect"])/%(uri)")
 }
 
-Response.redirect("https://dev.ar")
+Response.redirect("https://mi.dev.ar")
