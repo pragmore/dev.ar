@@ -1,2 +1,4 @@
-import "bialet" for Response
+import "bialet" for Response, Session
+
+Session.destroy()
 Response.redirect("/")
