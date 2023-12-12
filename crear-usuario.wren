@@ -1,7 +1,11 @@
-import "bialet" for Response, Request
+import "bialet" for Response, Request, Session
 import "_app/layout" for Layout
 import "_app/domain" for Dominio, Usuario
 import "_app/validator" for Validator
+
+if (Session.new().get("usuario")) {
+  return Response.redirect("/dashboard")
+}
 
 var error = false
 var messages = {}

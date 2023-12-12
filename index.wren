@@ -1,5 +1,9 @@
-import "bialet" for Response
+import "bialet" for Response, Session
 import "_app/layout" for Layout
+
+if (Session.new().get("usuario")) {
+  return Response.redirect("/dashboard")
+}
 
 var html = Layout.render("dev.ar", "
   <h1>👩‍💻 <em>loquequieras</em>.dev.ar</h1>
