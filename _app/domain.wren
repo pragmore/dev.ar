@@ -1,15 +1,15 @@
-import "bialet" for Db, User
+import "bialet" for Db, Util
 
 class Dominio {
-  static findByFqdn(fqdn) { Db.one("SELECT * FROM dominios WHERE fqdn = ?", [fqdn]) }
-  static findByUsuario(usuario) { Db.all("SELECT * FROM dominios WHERE usuario = ?", [usuario]) }
+  static findByFqdn(fqdn) { `SELECT * FROM dominios WHERE fqdn = ?`.first(fqdn) }
+  static findByUsuario(usuario) { `SELECT * FROM dominios WHERE usuario = ?`.fetch(usuario) }
 }
 
 class Usuario {
   static guardar(email, password, fqdn, ref) {
     var idUsuario = Db.save("usuarios", {
       "email": email,
-      "password": User.hash(password),
+      "password": Util.hash(password),
       "ref": ref
     })
     Db.save("dominios", {
@@ -18,11 +18,11 @@ class Usuario {
     })
     return idUsuario
   }
-  static findByEmail(email) { Db.one("SELECT * FROM usuarios WHERE email = ?", [email]) }
+  static findByEmail(email) { `SELECT * FROM usuarios WHERE email = ?`.first(email) }
   static iniciar(email, password) {
-    var usuario = Db.one("SELECT id, password FROM usuarios WHERE email = ?", [email])
+    var usuario = `SELECT id, password FROM usuarios WHERE email = ?`.first(email)
     if (usuario) {
-      if (User.verify(password, usuario["password"])) {
+      if (Util.verify(password, usuario["password"])) {
         return usuario["id"]
       }
     }
