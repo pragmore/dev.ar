@@ -19,8 +19,7 @@ if (Request.isPost()) {
   }
 }
 
-var html = Layout.render("Iniciar sesión en dev.ar", "
-  <h1>👩‍💻 Iniciar sesión en <em>dev.ar</em></h1>
+var html = Layout.render("Iniciar sesión", "
   <form method='post'>
     %( error ? "<p class='msg err'>El correo o la contraseña son incorrectos</p>" : "" )
 

@@ -36,8 +36,7 @@ if (Request.isPost()) {
   }
 }
 
-var html = Layout.render("Registrate en dev.ar", "
-  <h1>👩‍💻 Registrate en <em>dev.ar</em></h1>
+var html = Layout.render("Crear usuario y dominio", "
   <form method='post'>
     <input type='hidden' name='ref' id='ref' value='%( referrer )' />
 

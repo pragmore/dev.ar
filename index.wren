@@ -5,20 +5,10 @@ if (Session.new().get("usuario")) {
   return Response.redirect("/dashboard")
 }
 
-var html = Layout.render("dev.ar", "
-  <h1>👩‍💻 <em>loquequieras</em>.dev.ar</h1>
-  <div class='text-lg text-center'>
-    <p>
-      ¿Queres tener tu dominio <strong>.dev.ar</strong> gratis?
-    </p>
-    <p>
-      <a class='btn main' href='/crear-usuario'>Sumate a la beta 🎉</a>
-    </p>
-    <p>
-      <a href='/iniciar-sesion'>Iniciar sesión</a>
-    </p>
+var html = Layout.render("Dominios gratis", '
+  <div>
+      <a class="nb-button orange" href="/crear-usuario">Sumate a la beta</a>
+      <a class="nb-button blue" href="/iniciar-sesion">Iniciar sesión</a>
   </div>
-  <script src='https://unpkg.com/typewriter-effect@2.3.1/dist/core.js'></script>
-  <script src='js/index.js'></script>
-")
+')
 Response.out(html)

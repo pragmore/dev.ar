@@ -2,8 +2,6 @@ import "bialet" for Response
 import "_app/layout" for Layout
 
 var html = Layout.render("Terminos y condiciones de dev.ar", "
-  <h1>Términos y condiciones de <em>dev.ar</em></h1>
-
   <p>TÉRMINOS Y CONDICIONES DE SERVICIO PARA DEV.AR PROVISTO POR PRAGMORE S.R.L.</p>
   <ol>
     <li>
