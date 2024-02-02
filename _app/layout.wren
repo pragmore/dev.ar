@@ -17,8 +17,8 @@ class Layout {
         %( header(title) )
         <main>
           %( children )
+          %( footer )
         </main>
-        %( footer )
       </body>
     </html>
   ' }

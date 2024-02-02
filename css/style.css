@@ -3,13 +3,13 @@ body {
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
-  font-size: 20pt;
+  font-size: clamp(12pt, -0.875rem + 8.333vw, 20pt);
   text-transform: uppercase;
   width: 100%;
   margin: 0 auto;
   background-color: #ffdb58;
 }
-main, footer { width: 95%; margin: 1em auto }
+main { width: 90%; margin: 1em auto }
 p { margin: .5em 0 }
 a{ color: #0077b6 }
 
@@ -52,6 +52,7 @@ footer{
   padding: .75em;
   border: 3px solid #000;
   color: #fff;
+  margin-top: 1em;
 }
 footer a{ color: #daf5f0; text-decoration: none }
 
@@ -96,6 +97,8 @@ input:invalid { border-color: #dc341e }
 .btn{
   cursor: pointer;
   background-color: #ff7a5c;
+  margin: .5em;
+  text-align: center;
 }
 .btn:hover {
   filter: drop-shadow(3px 3px 0 rgb(0 0 0 / 1));
