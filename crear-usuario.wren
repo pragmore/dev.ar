@@ -1,9 +1,9 @@
-import "bialet" for Response, Request, Session
+import "bialet" for Response, Request
 import "_app/layout" for Layout
 import "_app/domain" for Dominio, Usuario
 import "_app/validator" for Validator
 
-if (Session.new().get("usuario")) {
+if (Usuario.estaLogueado) {
   return Response.redirect("/dashboard")
 }
 
@@ -77,7 +77,12 @@ var html = Layout.render("Crear usuario y dominio", "
       />
     </p>
 
-    <p><label><input type='checkbox' name='terms' required /> Acepto los <a href='/terminos-y-condiciones' target='_blank'>términos y condiciones</a></label></p>
+    <p>
+      <label>
+        <input type='checkbox' name='terms' required />
+        <span>Acepto los <a href='/terminos-y-condiciones' target='_blank'>términos y condiciones</a></span>
+      </label>
+    </p>
 
     <p><button class='btn main'>Registrar cuenta y dominio</button></p>
 

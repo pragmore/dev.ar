@@ -9,10 +9,7 @@ var referrer = Request.get("ref")
 if (Request.isPost()) {
   var email = Request.post("email")
   var password = Request.post("password")
-  var idUsuario = Usuario.iniciar(email, password)
-  if (idUsuario) {
-    // TODO Session
-    Session.new().set("usuario", idUsuario)
+  if (Usuario.iniciar(email, password)) {
     return Response.redirect("/dashboard")
   } else {
     error = true
