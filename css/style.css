@@ -12,6 +12,7 @@ body {
 main { width: 90%; margin: 1em auto }
 p { margin: .5em 0 }
 a{ color: #0077b6 }
+h2{ text-align: center }
 
 header{
   background: #fff;
@@ -33,7 +34,7 @@ div, form, .msg {
   border: 3px solid #000;
   border-radius: 20px;
   filter: drop-shadow(4px 4px 0px #000);
-  padding: .75em;
+  padding: 1em;
 }
 .msg.err { background-color: #ff4911 }
 .msg.ok  { background-color: #7fbc8c }
@@ -97,7 +98,6 @@ input:invalid { border-color: #dc341e }
 .btn{
   cursor: pointer;
   background-color: #ff7a5c;
-  margin: .5em;
   text-align: center;
 }
 .btn:hover {

@@ -1,16 +1,18 @@
 import "bialet" for Db, Util, Session
 
+var DOMINIOS_GRATIS = 200
+
 class Dominio {
   static findByFqdn(fqdn) { `SELECT * FROM dominios WHERE fqdn = ?`.first(fqdn) }
   static findByUsuario(usuario) { `SELECT * FROM dominios WHERE usuario = ?`.fetch(usuario) }
   static delUsuarioLogueado { findByUsuario(Session.new().get("usuario")) }
   static guardar(dominio){ Db.save("dominios", dominio) }
+  static total { Num.fromString(`SELECT COUNT(*) as total FROM dominios`.first()["total"]) }
+  static quedan { DOMINIOS_GRATIS - total }
 }
 
 class Usuario {
   static guardar(email, password, fqdn, ref) {
-    System.print("%( email ), %( password ), %( fqdn ), %( ref )")
-    System.print("%( email.type ), %( password.type ), %( fqdn.type ), %( ref.type )")
     var idUsuario = Db.save("usuarios", {
       "email": email,
       "password": Util.hash(password),
