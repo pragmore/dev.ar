@@ -26,6 +26,7 @@ class Usuario {
       "fqdn": fqdn,
       "usuario": idUsuario,
     })
+    Session.new().set("usuario", idUsuario)
     return idUsuario
   }
   static findByEmail(email) { `SELECT * FROM usuarios WHERE email = ?`.first(email) }

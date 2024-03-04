@@ -10,30 +10,26 @@ if (Usuario.estaLogueado) {
 var q = Dominio.normalizarDominio(Request.get("q"))
 var encontrado = Dominio.findByFqdn(q)
 var valido = Dominio.valido(q)
-
 var error = false
-var messages = {}
-var referrer = Request.get("ref")
 
-if (!encontrado && valido && Request.isPost()) {
+if (Request.isPost() && !encontrado && valido) {
   var email = Request.post("email")
   var password = Request.post("password")
   var domain = q
   var referrer = Request.get("ref")
+  if (!Request.post("terminos")) {
+    error = "Debes aceptar los términos y condiciones"
+  }
   if (!Validator.email(email)) {
-    error = true
-    messages["email"] = "Correo electrónico no válido"
+    error = "Correo electrónico no válido"
   } else if (Usuario.findByEmail(email)) {
-    error = true
-    messages["email"] = "El correo electrónico ya está registrado"
+    error = "El correo electrónico ya está registrado"
   }
   if (!error) {
     Usuario.guardar(email, password, domain, referrer)
     return Response.redirect("/dashboard")
   }
 }
-
-System.print(valido)
 
 var html = Layout.render("Buscar dominio %(q)", '
 
@@ -55,7 +51,7 @@ var html = Layout.render("Buscar dominio %(q)", '
     <div class="row justify-content-center">
       <div class="col-xl-6">
         %( error ?
-          '<p class="alert alert-error">%(messages)</p>':
+          '<h2 class="alert alert-danger text-center" role="alert">%(error)</h2>':
           '<h2 class="alert alert-success text-center" role="alert">¡El dominio esta disponible! 🥳</h2>'
         )
       </div>
@@ -69,16 +65,16 @@ var html = Layout.render("Buscar dominio %(q)", '
             </h1>
           </div>
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com">
+            <input type="email" class="form-control" name="email" id="email" placeholder="nombre@ejemplo.com" value="%( Request.post("email") )">
             <label for="email">Correo electrónico</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="password" placeholder="Contraseña">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
             <label for="password">Contraseña</label>
           </div>
           <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" name="terminos" %( Request.post("terminos") ? 'checked="checked"' : "")" id="terminos">
+            <label class="form-check-label" for="terminos">
               Acepto los <a href="/terminos-y-condiciones" target="_blank">términos y condiciones</a>
             </label>
           </div>
