@@ -14,7 +14,7 @@ var referrer = Request.get("ref")
 if (Request.isPost()) {
   var email = Request.post("email")
   var password = Request.post("password")
-  var domain = Request.post("domain")
+  var domain = Dominio.normalizarDominio(Request.post("domain"))
   var referrer = Request.post("referrer")
   if (!Validator.email(email)) {
     error = true

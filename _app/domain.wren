@@ -1,5 +1,6 @@
 import "bialet" for Db, Util, Session
 
+var SUFIJO_DOMINIO = ".dev.ar"
 var DOMINIOS_GRATIS = 200
 
 class Dominio {
@@ -9,6 +10,7 @@ class Dominio {
   static guardar(dominio){ Db.save("dominios", dominio) }
   static total { Num.fromString(`SELECT COUNT(*) as total FROM dominios`.first()["total"]) }
   static quedan { DOMINIOS_GRATIS - total }
+  static normalizarDominio(dominio) { dominio.trimEnd(SUFIJO_DOMINIO) + SUFIJO_DOMINIO }
 }
 
 class Usuario {
