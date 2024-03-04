@@ -16,34 +16,23 @@ if (Request.isPost()) {
   }
 }
 
-var html = Layout.render("Iniciar sesión", "
-  <form method='post'>
-    %( error ? "<p class='msg err'>El correo o la contraseña son incorrectos</p>" : "" )
-
-    <p><label for='email'>Correo electrónico</label></p>
-    <p>
-      <input
-        type='email'
-        name='email'
-        id='email'
-        placeholder='email@ejemplo.com'
-        required
-      />
-    </p>
-
-    <p><label for='password'>Contraseña</label></p>
-    <p>
-      <input
-        type='password'
-        name='password'
-        id='password'
-        required
-      />
-    </p>
-
-    <p><button class='btn main'>Iniciar sesión</button></p>
-
-    <p>No tengo un usuario, <a href='/crear-usuario'>crear uno nuevo</a></p>
-  </form>
-")
+var html = Layout.render("Iniciar sesión", '
+<div class="row justify-content-center mt-4">
+  <div class="col-xl-6">
+    <h2 class="mb-4">Iniciar sesión</h2>
+    <form method="post">
+      %( error ? '<p class="alert alert-error">El correo o la contraseña son incorrectos</p>' : '' )
+      <div class="form-floating mb-3">
+        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com">
+        <label for="floatingInput">Correo electrónico</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+        <label for="floatingPassword">Contraseña</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+    </form>
+  </div>
+</div>
+')
 Response.out(html)

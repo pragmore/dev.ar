@@ -1,7 +1,8 @@
 import "bialet" for Db, Util, Session
 
-var SUFIJO_DOMINIO = ".dev.ar"
+var SUFIJO = ".dev.ar"
 var DOMINIOS_GRATIS = 200
+var MINIMO = 6
 
 class Dominio {
   static findByFqdn(fqdn) { `SELECT * FROM dominios WHERE fqdn = ?`.first(fqdn) }
@@ -10,7 +11,8 @@ class Dominio {
   static guardar(dominio){ Db.save("dominios", dominio) }
   static total { Num.fromString(`SELECT COUNT(*) as total FROM dominios`.first()["total"]) }
   static quedan { DOMINIOS_GRATIS - total }
-  static normalizarDominio(dominio) { dominio.trimEnd(SUFIJO_DOMINIO) + SUFIJO_DOMINIO }
+  static normalizarDominio(dominio) { dominio.endsWith(SUFIJO) ? dominio : dominio + SUFIJO }
+  static valido(dominio) { dominio.count >= MINIMO + SUFIJO.count }
 }
 
 class Usuario {

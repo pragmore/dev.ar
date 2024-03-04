@@ -25,14 +25,14 @@ class Layout {
             <div class="container">
                 <a class="navbar-brand" href="/">Dominios gratis</a>
                 %( Usuario.estaLogueado ? 
-                    '<a class="btn btn-primary" href="/cerrar-sesion">Cerrar sesión</a>':
-                    '<a class="btn btn-primary" href="/iniciar-sesion">Iniciar sesión</a>'
+                    '<a class="btn btn-secondary" href="/cerrar-sesion">Cerrar sesión</a>':
+                    '<a class="btn btn-secondary" href="/iniciar-sesion">Iniciar sesión</a>'
                   )
             </div>
         </nav>
         %( children )
         <!-- Footer-->
-        <footer class="footer bg-light">
+        <footer class="footer bg-light mt-4">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
@@ -81,4 +81,45 @@ class Layout {
     <footer>
       Hecho con ❤️ por <a href="https://pragmore.com">Pragmore</a>
     </footer>' }
+
+  static headerBuscar(q) { '
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <div class="text-center text-white">
+                    <!-- Page heading-->
+                    <h1 class="mb-5">Registra tu dominio .dev.ar</h1>
+                    <form class="form-subscribe" action="/buscar">
+                        <!-- Email address input-->
+                        <div class="row">
+                            <div class="col">
+                                <input class="form-control form-control-lg" name="q" id="q" type="text" placeholder="loquequieras.dev.ar" value="%( q )" data-sb-validations="required" />
+                            </div>
+                            <div class="col-auto"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Buscar</button></div>
+                        </div>
+                        <!-- Submit success message-->
+                        <!---->
+                        <!-- This is what your users will see when the form-->
+                        <!-- has successfully submitted-->
+                        <div class="d-none" id="submitSuccessMessage">
+                            <div class="text-center mb-3">
+                                <div class="fw-bolder">Form submission successful!</div>
+                                <p>To activate this form, sign up at</p>
+                                <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                            </div>
+                        </div>
+                        <!-- Submit error message-->
+                        <!---->
+                        <!-- This is what your users will see when there is-->
+                        <!-- an error submitting the form-->
+                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>' }
+
 }
