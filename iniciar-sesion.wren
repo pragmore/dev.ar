@@ -27,8 +27,8 @@ var html = Layout.render("Iniciar sesión", '
         <label for="floatingInput">Correo electrónico</label>
       </div>
       <div class="form-floating mb-3">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
-        <label for="floatingPassword">Contraseña</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+        <label for="password">Contraseña</label>
       </div>
       <button type="submit" class="btn btn-primary">Iniciar sesión</button>
     </form>
