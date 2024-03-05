@@ -8,7 +8,7 @@ Si queres tener un subdominio gratuito [create un usuario en la web](https://hom
 Opciones de Hosting
 --------------------
 
-* Quiero una redirección
+* Redirección
 * GitHub Pages
 * Vercel
 * PythonAnywhere
