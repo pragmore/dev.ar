@@ -43,7 +43,10 @@ class Layout {
                             <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href="/terminos-y-condiciones">Términos y Condiciones</a></li>
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Pragmore SRL 2024. Todos los derechos reservados.</p>
+                        <p class="text-muted small mb-4 mb-lg-0">
+                          Desarrollo y mantenimiento por <a href="https://pragmore.com">Pragmore</a>.
+                          Theme hecho por <a href="https://startbootstrap.com/theme/landing-page">Start Bootstrap</a>.
+                        </p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
