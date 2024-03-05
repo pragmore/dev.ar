@@ -3,7 +3,7 @@ dev.ar
 
 App para manejar los subdominios de **.dev.ar**.
 
-Si queres tener un subdominio gratuito [create un usuario en la web](https://dev.ar).
+Si queres tener un subdominio gratuito [create un usuario en la web](https://home.dev.ar).
 
 Opciones de Hosting
 --------------------
