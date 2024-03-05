@@ -1,4 +1,4 @@
-import "_app/domain" for Usuario
+import "_app/domain" for Usuario, Dominio
 
 class Layout {
   static render(title, children) { '
@@ -20,11 +20,12 @@ class Layout {
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
+        %( bannerQuedan )
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="/">Dominios gratis</a>
-                %( Usuario.estaLogueado ? 
+                %( Usuario.estaLogueado ?
                     '<a class="btn btn-secondary" href="/cerrar-sesion">Cerrar sesión</a>':
                     '<a class="btn btn-secondary" href="/iniciar-sesion">Iniciar sesión</a>'
                   )
@@ -124,5 +125,11 @@ class Layout {
         </div>
     </div>
 </header>' }
+
+  static bannerQuedan { Usuario.estaLogueado || Dominio.quedan <= 0 ? '' : '
+    <div class="banner sticky-top alert alert-warning text-center" role="alert">
+      🔥 Quedan <strong>%( Dominio.quedan )</strong> dominios disponibles
+    </div>
+  ' }
 
 }

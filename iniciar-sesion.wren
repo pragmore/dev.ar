@@ -6,7 +6,7 @@ var error = false
 var messages = {}
 var referrer = Request.get("ref")
 
-if (Request.isPost()) {
+if (Request.isPost) {
   var email = Request.post("email")
   var password = Request.post("password")
   if (Usuario.iniciar(email, password)) {

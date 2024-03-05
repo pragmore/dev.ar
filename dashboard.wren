@@ -10,7 +10,7 @@ var dominios = Dominio.delUsuarioLogueado
 var dominio = dominios[0]
 
 var mensajeGuardado
-if (Request.isPost()) {
+if (Request.isPost) {
   dominio["redirect"] = Request.post("redirect")
   System.print("Cambiar redirect de %( dominio["fqdn"] ) a %( dominio["redirect"] )")
   if (Dominio.guardar(dominio)) {

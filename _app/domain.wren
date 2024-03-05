@@ -1,7 +1,7 @@
 import "bialet" for Db, Util, Session
 
 var SUFIJO = ".dev.ar"
-var DOMINIOS_GRATIS = 200
+var DOMINIOS_GRATIS = 100
 var MINIMO = 6
 
 class Dominio {

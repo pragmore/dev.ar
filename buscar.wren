@@ -12,7 +12,7 @@ var encontrado = Dominio.findByFqdn(q)
 var valido = Dominio.valido(q)
 var error = false
 
-if (Request.isPost() && !encontrado && valido) {
+if (Request.isPost && !encontrado && valido && Dominio.quedan > 0) {
   var email = Request.post("email")
   var password = Request.post("password")
   var domain = q
@@ -56,6 +56,7 @@ var html = Layout.render("Buscar dominio %(q)", '
         )
       </div>
     </div>
+    %( Dominio.quedan > 0 ? '
     <div class="row justify-content-center mt-4">
       <div class="col-xl-6">
         <form method="POST">
@@ -81,6 +82,11 @@ var html = Layout.render("Buscar dominio %(q)", '
           <button type="submit" class="btn btn-primary">Crear cuenta</button>
         </form>
     </div>
+    ' : '
+      <p class="text-center mt-2 fs-3">No contamos con cupo para registrarlo en este momento.</p>
+      <p class="text-center mt-2 fs-3">📣 Se aproxima una nueva tanda de dominios</p>
+      <p class="text-center mt-2 fs-3">Seguinos en <a href="https://twitter.com/pragmore" target="_blank">Twitter</a> y <a href="https://www.linkedin.com/company/pragmore/" target="_blank">LinkedIn</a> para ser tener tu dominio antes que nadie</p>
+    ')
   </div>
 </section>
 ')
