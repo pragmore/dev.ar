@@ -1,4 +1,5 @@
 import "bialet" for Response, Session
+import "_app/domain" for Usuario
 
-Session.destroy()
+Usuario.cerrarSesion
 Response.redirect("/")

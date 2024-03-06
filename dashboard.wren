@@ -7,6 +7,10 @@ if (!Usuario.estaLogueado) {
 }
 
 var dominios = Dominio.delUsuarioLogueado
+if (!dominios || dominios.count <= 0) {
+  Usuario.cerrarSesion
+  return Response.redirect("/")
+}
 var dominio = dominios[0]
 
 var mensajeGuardado

@@ -58,4 +58,5 @@ class Usuario {
     return false
   }
   static estaLogueado { Session.new().get("usuario") != null }
+  static cerrarSesion { Session.destroy() }
 }
