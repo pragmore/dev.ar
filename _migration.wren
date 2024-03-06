@@ -17,3 +17,8 @@ Db.migrate("Tabla dominios", `
     redirect TEXT
   )
 `)
+
+Db.migrate("Normalizar en minuscula", `
+  UPDATE usuarios SET email = LOWER(email);
+  UPDATE dominios SET fqdn = LOWER(fqdn);
+`)
