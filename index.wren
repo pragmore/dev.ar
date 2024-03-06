@@ -6,7 +6,7 @@ if (Usuario.estaLogueado) {
   return Response.redirect("/dashboard")
 }
 
-var html = Layout.render("Dominios", '
+var html = Layout.render("Dominios .dev.ar gratis", '
 %( Layout.headerBuscar('') )
 <!-- Icons Grid-->
 <section class="features-icons bg-light text-center">
