@@ -1,19 +1,36 @@
 import "bialet" for Db, Util, Session
 
-var SUFIJO = ".dev.ar"
-var DOMINIOS_GRATIS = 100
-var MINIMO = 6
-
 class Dominio {
+  static init {
+    // Configuración
+    __DOMINIOS_GRATIS = 100
+    __SUFIJO = ".dev.ar"
+    __MINIMO = 6
+    __CARACTERES_PERMITIDOS = "abcdefghijklmnopqrstuvwxyz0123456789-"
+  }
+  static MINIMO { __MINIMO }
+  static CARACTERES_PERMITIDOS { __CARACTERES_PERMITIDOS }
+
   static findByFqdn(fqdn) { `SELECT * FROM dominios WHERE fqdn = ?`.first(fqdn.lower) }
   static findByUsuario(usuario) { `SELECT * FROM dominios WHERE usuario = ?`.fetch(usuario) }
   static delUsuarioLogueado { findByUsuario(Session.new().get("usuario")) }
   static guardar(dominio){ Db.save("dominios", dominio) }
   static total { Num.fromString(`SELECT COUNT(*) as total FROM dominios`.first()["total"]) }
-  static quedan { DOMINIOS_GRATIS - total }
-  static normalizarDominio(dominio) { (dominio.endsWith(SUFIJO) ? dominio : dominio + SUFIJO).lower }
-  static valido(dominio) { dominio.count >= MINIMO + SUFIJO.count }
+  static quedan { __DOMINIOS_GRATIS - total }
+  static normalizarDominio(dominio) { (dominio.endsWith(__SUFIJO) ? dominio : dominio + __SUFIJO).lower }
+  static valido(dominio) {
+    if (dominio.count < __MINIMO + __SUFIJO.count) {
+      return false
+    }
+    for (caracter in dominio[0..(dominio.count - __SUFIJO.count - 1)]) {
+      if (!__CARACTERES_PERMITIDOS.contains(caracter)) {
+        return false
+      }
+    }
+    return true
+  }
 }
+Dominio.init
 
 class Usuario {
   static guardar(email, password, fqdn, ref) {

@@ -40,7 +40,8 @@ var html = Layout.render("Buscar dominio %(q)", '
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-xl-6">
-        <h2 class="alert alert-warning text-center" role="alert">El dominio se encuentra registrado 😞</h2>
+        <h2 class="alert alert-warning text-center" role="alert">El dominio se encuentra registrado o es inválido 😞</h2>
+        <p>Se permiten hasta %( Dominio.MINIMO ) caracteres, y sólo se aceptan los siguientes caracteres: <code>%( Dominio.CARACTERES_PERMITIDOS )</code></p>
       </div>
     </div>
   </div>
