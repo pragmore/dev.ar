@@ -43,10 +43,12 @@ class Layout {
                             <li class="list-inline-item"><a href="https://pragmore.com">Nosotros</a></li>
                             <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href="/terminos-y-condiciones">Términos y Condiciones</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="https://github.com/pragmore/dev.ar/issues">Reportar problema</a></li>
                         </ul>
                         <p class="text-muted small mb-4 mb-lg-0">
-                          Desarrollo y mantenimiento por <a href="https://pragmore.com">Pragmore</a>.
-                          Theme hecho por <a href="https://startbootstrap.com/theme/landing-page">Start Bootstrap</a>.
+                          Hecho en <a href="https://bialet.org">Bialet</a> por <a href="https://pragmore.com">Pragmore</a>.
+                          Theme por <a href="https://startbootstrap.com/theme/landing-page">Start Bootstrap</a>.
                         </p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
@@ -80,11 +82,6 @@ class Layout {
       %( Usuario.estaLogueado ? '<a href="/cerrar-sesion">Cerrar sesión</a>' : "" )
     </header>
   ' }
-
-  static footer { '
-    <footer>
-      Hecho con ❤️ por <a href="https://pragmore.com">Pragmore</a>
-    </footer>' }
 
   static headerBuscar(q) { '
 <!-- Masthead-->
