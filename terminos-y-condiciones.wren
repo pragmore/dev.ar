@@ -44,7 +44,7 @@ Este punto incluye cualquier otra información que Pragmore S.R.L. considere ina
       </p>
       <p>
 
-        Para denunciar un servicio o subdominio que esté siendo utilizado para fines ilícitos, el canal de contacto es con nuestro Departamento de Investigación a través de: <a href='mailto:abuse@pragmore.com'>abuse@pragmore.com</a>. El accionar en las denuncias recibidas estará sujeto a la evaluación y criterio exclusivo de Pragmore S.R.L.
+        Para denunciar un servicio o subdominio que esté siendo utilizado para fines ilícitos, el canal de contacto es con nuestro Departamento de Investigación a través de: <a href='mailto:dev.ar@pragmore.com'>dev.ar@pragmore.com</a>. El accionar en las denuncias recibidas estará sujeto a la evaluación y criterio exclusivo de Pragmore S.R.L.
 
       </p>
     </li>
