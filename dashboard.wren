@@ -27,22 +27,42 @@ var html = Layout.render("Dashboard", '
   <div class="container-fluid justify-content-center">
     <div class="row px-4">
       <div class="col-xl-6 offset-xl-2">
-        <p class="alert alert-info" role="alert">ℹ️ Próximamente podrás apuntar directamente a tu servidor sin redirección.</p>
+        <p class="alert alert-info" role="alert">ℹ️ Próximamente habrá mas opciones de hosting<p>
       </div>
     </div>
     <div class="row px-4 mt-4">
       <div class="col-xl-6 offset-xl-2">
-        <form method="post">
-          <h1>
-            Tu dominio es: <strong class="text-secondary">%( dominio["fqdn"] )</strong>
-          </h1>
-          %( mensajeGuardado )
-          <div class="form-floating mb-3">
-            <input type="text" name="redirect" class="form-control" id="redirect" value="%( dominio["redirect"] ?dominio["redirect"] : "" )" placeholder="https://ejemplo.com">
-            <label for="redirect">URL donde redirecciona tu dominio</label>
+          <div class="container-fluid">
+            <div class="row">
+              <h1>
+                Tu dominio es: <strong class="text-secondary">%( dominio["fqdn"] )</strong>
+              </h1>
+            </div>
+            <div class="row mt-4">
+              <form method="post" action="/hosting">
+                <h2>Hosting</h2>
+                <div class="form-floating mb-3">
+                  <select name="hosting" class="form-select" id="hosting">
+                    <option value="">Ninguno</option>
+                    <option value="github" %( dominio["hosting"] == "github" ? "selected" :"" )>GitHub</option>
+                  </select>
+                  <label for="hosting">Hosting</label>
+                </div>
+                <button class="btn btn-primary">Cambiar hosting</button>
+              </form>
+            </div>
+            <div class="row mt-4">
+              <form method="post">
+                <h2>Redirección</h2>
+                %( mensajeGuardado )
+                <div class="form-floating mb-3">
+                  <input type="text" name="redirect" class="form-control" id="redirect" value="%( dominio["redirect"] ?dominio["redirect"] : "" )" placeholder="https://ejemplo.com">
+                  <label for="redirect">URL donde redirecciona tu dominio</label>
+                </div>
+                <button class="btn btn-primary">Cambiar redirección</button>
+              </form>
+            </div>
           </div>
-          <button class="btn btn-primary">Cambiar redirección</button>
-        </form>
       </div>
     </div>
     <div class="row px-4 mt-4">

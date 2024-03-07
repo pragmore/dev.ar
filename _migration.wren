@@ -22,3 +22,13 @@ Db.migrate("Normalizar en minuscula", `
   UPDATE usuarios SET email = LOWER(email);
   UPDATE dominios SET fqdn = LOWER(fqdn);
 `)
+
+Db.migrate("Hosting", `
+  ALTER TABLE dominios ADD hosting TEXT;
+  CREATE TABLE hosting (
+    dominio INTEGER NOT NULL,
+    key TEXT,
+    value TEXT,
+    PRIMARY KEY (dominio, key)
+  );
+`)
