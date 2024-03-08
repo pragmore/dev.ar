@@ -123,7 +123,7 @@ class Layout {
     </div>
 </header>' }
 
-  static bannerQuedan { Usuario.estaLogueado || Dominio.quedan <= 0 ? '' : '
+  static bannerQuedan { Usuario.estaLogueado || (Dominio.quedan <= 0 || Dominio.quedan > 30) ? '' : '
     <div class="banner sticky-top alert alert-warning text-center" role="alert">
       🔥 Quedan <strong>%( Dominio.quedan )</strong> dominios disponibles
     </div>
