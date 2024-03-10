@@ -3,7 +3,7 @@ import "bialet" for Db, Util, Session
 class Dominio {
   static init {
     // Configuración
-    __DOMINIOS_GRATIS = 300
+    __DOMINIOS_GRATIS = 400
     __SUFIJO = ".dev.ar"
     __MINIMO = 6
     __CARACTERES_PERMITIDOS = "abcdefghijklmnopqrstuvwxyz0123456789-"
