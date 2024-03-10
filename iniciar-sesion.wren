@@ -17,22 +17,24 @@ if (Request.isPost) {
 }
 
 var html = Layout.render("Iniciar sesión", '
-<div class="row justify-content-center mt-4">
-  <div class="col-xl-6">
-    <h2 class="mb-4">Iniciar sesión</h2>
-    <form method="post">
-      %( error ? '<p class="alert alert-error">El correo o la contraseña son incorrectos</p>' : '' )
-      <div class="form-floating mb-3">
-        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com">
-        <label for="floatingInput">Correo electrónico</label>
-      </div>
-      <div class="form-floating mb-3">
-        <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
-        <label for="password">Contraseña</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-    </form>
+<section class="container" id="signup">
+  <div class="row justify-content-center mt-4">
+    <div class="col-xl-6">
+      <h2 class="mb-4">Iniciar sesión</h2>
+      <form method="post">
+        %( error ? '<p class="alert alert-error">El correo o la contraseña son incorrectos</p>' : '' )
+        <div class="form-floating mb-3">
+          <input type="email" name="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com">
+          <label for="floatingInput">Correo electrónico</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+          <label for="password">Contraseña</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+      </form>
+    </div>
   </div>
-</div>
+</section>
 ')
 Response.out(html)
