@@ -10,22 +10,25 @@ if (Usuario.estaLogueado) {
 var q = Dominio.normalizarDominio(Request.get("q"))
 var encontrado = Dominio.findByFqdn(q)
 var valido = Dominio.valido(q)
-var error = false
+var error = []
 
 if (Request.isPost && !encontrado && valido && Dominio.quedan > 0) {
   var email = Request.post("email")
   var password = Request.post("password")
   var domain = q
   var referrer = Request.get("ref")
-  if (!Request.post("terminos")) {
-    error = "Debes aceptar los términos y condiciones"
-  }
   if (!Validator.email(email)) {
-    error = "Correo electrónico no válido"
+    error.add("Correo electrónico no válido (no se permite +)")
   } else if (Usuario.findByEmail(email)) {
-    error = "El correo electrónico ya está registrado"
+    error.add("El correo electrónico ya está registrado")
   }
-  if (!error) {
+  if (!Validator.password(password)) {
+    error.add("La contraseña debe tener al menos %( Validator.MINIMO_PASSWORD ) caracteres")
+  }
+  if (!Request.post("terminos")) {
+    error.add("Debes aceptar los términos y condiciones")
+  }
+  if (error.count <= 0) {
     Usuario.guardar(email, password, domain, referrer)
     return Response.redirect("/dashboard")
   }
@@ -51,9 +54,9 @@ var html = Layout.render("Buscar dominio %(q)", '
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-xl-6">
-        %( error ?
-          '<h2 class="alert alert-danger text-center" role="alert">%(error)</h2>':
-          '<h2 class="alert alert-success text-center" role="alert">¡El dominio esta disponible! 🥳</h2>'
+        %( error.count > 0 ?
+          error.map{|message| '<p class="alert alert-danger text-center lead" role="alert">%(message)</p>' }:
+          '<p class="alert alert-success text-center lead" role="alert">¡El dominio esta disponible! 🥳</p>'
         )
       </div>
     </div>
