@@ -13,23 +13,36 @@ if (!dominios || dominios.count <= 0) {
 }
 var dominio = dominios[0]
 
-var mensajeGuardado
+var mensaje
 if (Request.isPost) {
-  dominio["redirect"] = Request.post("redirect")
-  System.print("Cambiar redirect de %( dominio["fqdn"] ) a %( dominio["redirect"] )")
-  if (Dominio.guardar(dominio)) {
-    mensajeGuardado = '<p class="alert alert-success" role="alert">Redireccion cambiada</p>'
+  if (Request.post("redirect")) {
+    dominio["redirect"] = Request.post("redirect")
+    System.print("Cambiar redirect de %( dominio["fqdn"] ) a %( dominio["redirect"] )")
+    if (Dominio.guardar(dominio)) {
+      mensaje = '<p class="alert alert-success" role="alert">Redireccion cambiada ✅</p>'
+    }
+  }
+  if (Request.post("dns")) {
+    dominio["dns"] = Request.post("dns")
+    System.print("Cambiar DNS de %( dominio["fqdn"] ) a %( dominio["dns"] )")
+    if (Dominio.guardar(dominio)) {
+      mensaje = '
+      <p class="alert alert-success" role="alert">DNS cambiado ✅</p>
+      <p class="alert alert-info" role="alert">📢 Recordá que <strong>los cambios pueden tardar hasta 48 horas</strong> en impactar.</p>'
+    }
   }
 }
 
 var html = Layout.render("Dashboard", '
 <section class="features-icons bg-light">
   <div class="container-fluid justify-content-center">
+    %( mensaje ? '
     <div class="row px-4">
       <div class="col-xl-6 offset-xl-2">
-        <p class="alert alert-info" role="alert">ℹ️ Próximamente habrá mas opciones de hosting<p>
+        %( mensaje )
       </div>
     </div>
+    ' : '' )
     <div class="row px-4 mt-4">
       <div class="col-xl-6 offset-xl-2">
           <div class="container-fluid">
@@ -39,22 +52,8 @@ var html = Layout.render("Dashboard", '
               </h1>
             </div>
             <div class="row mt-4">
-              <form method="post" action="/hosting">
-                <h2>Hosting</h2>
-                <div class="form-floating mb-3">
-                  <select name="hosting" class="form-select" id="hosting">
-                    <option value="">Ninguno</option>
-                    <option value="github" %( dominio["hosting"] == "github" ? "selected" :"" )>GitHub</option>
-                  </select>
-                  <label for="hosting">Hosting</label>
-                </div>
-                <button class="btn btn-primary">Cambiar hosting</button>
-              </form>
-            </div>
-            <div class="row mt-4">
               <form method="post">
                 <h2>Redirección</h2>
-                %( mensajeGuardado )
                 <div class="form-floating mb-3">
                   <input type="text" name="redirect" class="form-control" id="redirect" value="%( dominio["redirect"] ?dominio["redirect"] : "" )" placeholder="https://ejemplo.com">
                   <label for="redirect">URL donde redirecciona tu dominio</label>
@@ -62,11 +61,32 @@ var html = Layout.render("Dashboard", '
                 <button class="btn btn-primary">Cambiar redirección</button>
               </form>
             </div>
+            <div class="row mt-4">
+              <form method="post">
+                <h2>DNS</h2>
+                <div class="form-floating mb-3">
+                  <input type="text" name="dns" class="form-control" id="dns" value="%( dominio["dns"] ?dominio["dns"] : "" )" placeholder="tu-usuario.github.io">
+                  <label for="dns">Dominio o IP donde tiene que apuntar</label>
+                </div>
+                <button class="btn btn-primary">Actualizar DNS</button>
+              </form>
+            </div>
           </div>
       </div>
     </div>
     <div class="row px-4 mt-4">
       <div class="col-xl-6 offset-xl-2">
+        <h2 class="text-center fs-1 alert alert-warning">⚠️ Leer atentamente!</h2>
+        <ul class="fs-3">
+          <li>No son dominios, no hay servidores NS para configurar</li>
+          <li>No se permiten sub-subdominios (ej: <code>app.loquesea.dev.ar</code>)</li>
+          <li>Podés tener configurado la redireccion y el DNS de un dominio, siempre va a tener prioridad el DNS, en caso de no estar correctamente configurado se tomará la redirección</li>
+          <li>Los cambios de DNS pueden tardar hasta 48 horas</li>
+          <li>Si pones una IP en DNS se creará un registro del tipo <code>A</code></li>
+          <li>Si pones un dominio en DNS se creará un registro del tipo <code>CNAME</code></li>
+          <li>Para <strong>GitHub</strong> tenés que poner tu usuario en el dominio (ej: <code>roberto.github.io</code>) y poner un archivo `CNAME` en tu repositorio con el dominio. Lee atentamente la <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages" target="_blank">documentación de GitHub</a>.</li>
+          <li>Los proveedores que piden una verifición de un registro <code>TXT</code> no estan disponibles por el momento (entre ellos Vercel y Google)</li>
+        </ul>
         <p>Si necesitas ayuda enviame un correo a <a href="mailto:albo@pragmore.com">albo@pragmore.com</a></p>
       </div>
     </div>
