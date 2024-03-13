@@ -2,31 +2,39 @@ import "bialet" for Http, Config, Json
 
 class Cloudflare {
   static actualizarDns(dominio) {
-    // @TODO Eliminar records!
+    var records = Cloudflare.listRecords(dominio)
+    if (records && records["success"]) {
+      System.print("Dominio %(dominio["fqdn"]) encontró %( records["result"].count ) registros: %( records )")
+      records["result"].each{|record| Cloudflare.deleteRecord(record["id"]) }
+    }
     var response = Cloudflare.createRecord(dominio)
     System.print("Dominio %(dominio["fqdn"]): %( response )")
     return response["success"]
   }
+
   static createRecord(domain) {
     var data = Json.stringify({
-        "type": type(domain["dns"]),
-        "name": domain["fqdn"],
-        "content": domain["dns"],
-        "comment": "devar-app:%(domain["id"]):%(domain["fqdn"])",
-        "ttl": 1, // automatic
-        "proxied": true
+      "type": type(domain["dns"]),
+      "name": domain["fqdn"],
+      "content": domain["dns"],
+      "comment": "devar-app:%(domain["id"]):%(domain["fqdn"])",
+      "ttl": 1, // automatic
+      "proxied": true
     })
     return Http.post(urlZoneRecords, data, options)
   }
+  static listRecords(domain) { Http.get(urlZoneRecords + "?comment.startswith=devar-app:%(domain["id"]):", options) }
+  static deleteRecord(record) { Http.delete(urlZoneRecords + record, options) }
+
   static url(path) { "https://api.cloudflare.com/client/v4/%(path)" }
   static urlZoneRecords { url("zones/%( Config.get("CLOUDFLARE_ZONE_ID") )/dns_records") }
-  static options { {
-        "headers": {
-            "X-Auth-Email": Config.get("CLOUDFLARE_EMAIL"),
-            "X-Auth-Key": Config.get("CLOUDFLARE_API_KEY"),
-            "Content-Type": "application/json"
-        }
-  } }
+  static options {{
+    "headers": {
+      "X-Auth-Email": Config.get("CLOUDFLARE_EMAIL"),
+      "X-Auth-Key": Config.get("CLOUDFLARE_API_KEY"),
+      "Content-Type": "application/json"
+    }
+  }}
   static type(dns) {
     var ip = dns.split(".")
     return (ip.count == 4 && Num.fromString(ip[3])) ? "A" : "CNAME"
