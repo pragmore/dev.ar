@@ -1,6 +1,12 @@
 import "bialet" for Http, Config, Json
 
 class Cloudflare {
+  static actualizarDns(dominio) {
+    // @TODO Eliminar records!
+    var response = Cloudflare.createRecord(dominio)
+    System.print("Dominio %(dominio["fqdn"]): %( response )")
+    return response["success"]
+  }
   static createRecord(domain) {
     var data = Json.stringify({
         "type": type(domain["dns"]),

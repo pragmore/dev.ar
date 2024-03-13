@@ -1,6 +1,7 @@
 import "bialet" for Response, Request
 import "_app/layout" for Layout
 import "_app/domain" for Dominio, Usuario
+import "_app/cloudflare" for Cloudflare
 
 if (!Usuario.estaLogueado) {
   return Response.redirect("/")
@@ -23,12 +24,19 @@ if (Request.isPost) {
     }
   }
   if (Request.post("dns")) {
-    dominio["dns"] = Request.post("dns")
+    dominio["dns"] = Dominio.normalizarDns(Request.post("dns"))
     System.print("Cambiar DNS de %( dominio["fqdn"] ) a %( dominio["dns"] )")
-    if (Dominio.guardar(dominio)) {
-      mensaje = '
-      <p class="alert alert-success" role="alert">DNS cambiado ✅</p>
-      <p class="alert alert-info" role="alert">📢 Recordá que <strong>los cambios pueden tardar hasta 48 horas</strong> en impactar.</p>'
+    if (dominio["dns"].count > 0 && Dominio.guardar(dominio)) {
+      if (Cloudflare.actualizarDns(dominio)) {
+        mensaje = '
+        <p class="alert alert-success" role="alert">DNS cambiado ✅</p>
+        <p class="alert alert-info" role="alert">📢 Recordá que <strong>los cambios pueden tardar hasta 48 horas</strong> en impactar.</p>'
+      } else {
+        mensaje = '
+          <p class="alert alert-danger" role="alert">Error al actualizar el DNS ❌</p>
+          <p>Se guardó el DNS en nuestra base de datos, pero falló la actualización de Cloudflare. Por favor, intenta de nuevo en unos minutos. En caso de volver a fallar, <a href="mailto:albo@pragmore.com?subject=Fallo+DNS+%( dominio["fqdn"] )">mandanos un correo</a>.</p>
+        '
+      }
     }
   }
 }

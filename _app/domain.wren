@@ -18,6 +18,7 @@ class Dominio {
   static total { Num.fromString(`SELECT COUNT(*) as total FROM dominios`.first()["total"]) }
   static quedan { __DOMINIOS_GRATIS - total }
   static normalizarDominio(dominio) { (dominio.endsWith(__SUFIJO) ? dominio : dominio + __SUFIJO).lower }
+  static normalizarDns(dns) { dns.trim().trimStart("http://").trimStart("https://").lower }
   static valido(dominio) {
     if (dominio.count < __MINIMO + __SUFIJO.count) {
       return false
