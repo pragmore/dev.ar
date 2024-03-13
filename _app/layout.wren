@@ -2,8 +2,7 @@ import "_app/domain" for Usuario, Dominio
 
 class Layout {
   static render(title, children) { '
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html class="h-100" lang="es">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -19,7 +18,7 @@ class Layout {
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <body>
+    <body class="d-flex flex-column h-100">
         %( bannerQuedan )
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
@@ -33,7 +32,7 @@ class Layout {
         </nav>
         %( children )
         <!-- Footer-->
-        <footer class="footer bg-light mt-4">
+        <footer class="footer bg-light mt-auto">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
