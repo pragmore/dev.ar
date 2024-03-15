@@ -92,8 +92,8 @@ var html = Layout.render("Dashboard", '
           <li>Los cambios de DNS pueden tardar hasta 48 horas</li>
           <li>Si pones una IP en DNS se creará un registro del tipo <code>A</code></li>
           <li>Si pones un dominio en DNS se creará un registro del tipo <code>CNAME</code></li>
-          <li>Para <strong>GitHub</strong> tenés que poner tu usuario en el dominio (ej: <code>roberto.github.io</code>) y poner un archivo `CNAME` en tu repositorio con el dominio. Lee atentamente la <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages" target="_blank">documentación de GitHub</a>.</li>
-          <li>Los proveedores que piden una verifición de un registro <code>TXT</code> no estan disponibles por el momento (entre ellos Vercel y Google)</li>
+          <li>Para <strong>GitHub</strong> tenés que poner tu usuario en el dominio (ej: <code>roberto.github.io</code>), configurarlo desde Pages y asegurarte que exista el archivo <code>CNAME</code> en tu repositorio con el dominio. Lee atentamente la <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages" target="_blank">documentación de GitHub</a>.</li>
+          <li><strong>Los proveedores que piden una verifición de un registro <code>TXT</code> no estan disponibles por el momento (entre ellos Vercel y Google)</strong></li>
         </ul>
         <p>Si necesitas ayuda enviame un correo a <a href="mailto:albo@pragmore.com">albo@pragmore.com</a></p>
       </div>
