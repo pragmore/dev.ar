@@ -10,6 +10,7 @@ class Cloudflare {
       System.print("Dominio %(dominio["fqdn"]) (%(dominio["id"])) no encontró registros previos")
     }
     var response = Cloudflare.createRecord(dominio)
+    Cloudflare.createWwwRecord(dominio)
     System.print("Dominio %(dominio["fqdn"]): %( response )")
     return response["success"]
   }
@@ -24,6 +25,11 @@ class Cloudflare {
       "proxied": true
     })
     return Http.post(urlZoneRecords, data, options)
+  }
+  static createWwwRecord(domain) {
+    var www = domain
+    www["fqdn"] = "www." + domain["fqdn"]
+    return createRecord(www)
   }
   static listRecords(domain) { Http.get(urlZoneRecords + "?comment.startswith=devar-app:%(domain["id"]):", options) }
   static deleteRecord(record) { Http.delete("%(urlZoneRecords)/%(record)", options) }
