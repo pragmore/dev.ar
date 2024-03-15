@@ -49,8 +49,16 @@ class Usuario {
   }
   static findByEmail(email) { `SELECT * FROM usuarios WHERE email = ?`.first(email.lower) }
   static iniciar(email, password) {
-    var usuario = `SELECT id, password FROM usuarios WHERE email = ?`.first(email.lower)
+    var usuario = `SELECT * FROM usuarios WHERE email = ?`.first(email.lower)
     if (usuario) {
+      // Restablecer password
+      if (usuario["password"] == "") {
+        usuario["password"] = Util.hash(password)
+        Db.save("usuarios", usuario)
+        System.print("Se ha restablecido la password del usuario %( email )")
+        Session.new().set("usuario", usuario["id"])
+        return usuario["id"]
+      }
       if (Util.verify(password, usuario["password"])) {
         Session.new().set("usuario", usuario["id"])
         return usuario["id"]
