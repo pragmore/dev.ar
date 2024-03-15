@@ -74,7 +74,7 @@ var html = Layout.render("Dashboard", '
                 <h2>DNS</h2>
                 <div class="form-floating mb-3">
                   <input type="text" name="dns" class="form-control" id="dns" value="%( dominio["dns"] ?dominio["dns"] : "" )" placeholder="tu-usuario.github.io">
-                  <label for="dns">Dominio o IP donde tiene que apuntar</label>
+                  <label for="dns">Dominio o IP donde %( dominio["fqdn"] ) esta alojado</label>
                 </div>
                 <button class="btn btn-primary">Actualizar DNS</button>
               </form>
