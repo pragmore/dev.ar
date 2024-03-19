@@ -7,7 +7,7 @@ if (Usuario.estaLogueado) {
   return Response.redirect("/dashboard")
 }
 
-var q = Dominio.normalizarDominio(Request.get("q"))
+var q = Dominio.normalizarDominio(Request.get("q") || "")
 var encontrado = Dominio.findByFqdn(q)
 var valido = Dominio.valido(q)
 var error = []
