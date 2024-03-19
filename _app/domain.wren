@@ -38,11 +38,13 @@ class Usuario {
     var idUsuario = Db.save("usuarios", {
       "email": email.lower,
       "password": Util.hash(password),
-      "ref": ref
+      "ref": ref,
+      "created_at": `CURRENT_TIMESTAMP`,
     })
     Db.save("dominios", {
       "fqdn": fqdn.lower,
       "usuario": idUsuario,
+      "created_at": `CURRENT_TIMESTAMP`,
     })
     Session.new().set("usuario", idUsuario)
     return idUsuario

@@ -20,9 +20,14 @@ Db.migrate("Tabla dominios", `
 
 Db.migrate("Normalizar en minuscula", `
   UPDATE usuarios SET email = LOWER(email);
-  UPDATE dominios SET fqdn = LOWER(fqdn);
+  UPDATE dominios SET fqdn = LOWER(fqdn)
+`)
+
+Db.migrate("Agregar created", `
+  ALTER TABLE dominios ADD COLUMN created_at TIMESTAMP;
+  ALTER TABLE usuarios ADD COLUMN created_at TIMESTAMP
 `)
 
 Db.migrate("Agregar DNS", `
-  ALTER TABLE dominios ADD dns TEXT;
+  ALTER TABLE dominios ADD COLUMN dns TEXT
 `)
