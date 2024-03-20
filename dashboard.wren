@@ -79,6 +79,9 @@ var html = Layout.render("Dashboard", '
                 <button class="btn btn-primary">Actualizar DNS</button>
               </form>
             </div>
+            <div class="row mt-4 fs-4">
+              <a href="https://www.youtube.com/watch?v=ay9ZHj2Kjcg" target="_blank">Tutorial paso a paso para configurar GitHub</a>
+            </div>
           </div>
       </div>
     </div>
