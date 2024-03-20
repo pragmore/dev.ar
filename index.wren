@@ -23,14 +23,14 @@ var html = Layout.render("Tu espacio .dev.ar gratis", '
                 <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                     <div class="features-icons-icon d-flex"><i class="bi-ui-checks m-auto text-primary"></i></div>
                     <h3>Fácil</h3>
-                    <p class="lead mb-0">Redireccionalo a tu dominio o apuntalo al servidor que quieras</p>
+                    <p class="lead mb-0">Crea una redirección o apuntalo al servidor que quieras.</p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="features-icons-item mx-auto mb-0 mb-lg-3">
                     <div class="features-icons-icon d-flex"><i class="bi-person-check-fill m-auto text-primary"></i></div>
                     <h3>Uno solo</h3>
-                    <p class="lead mb-0">No queremos que pocas personas tengan muchos dominios</p>
+                    <p class="lead mb-0">No queremos que pocas personas tengan muchos.</p>
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@ var html = Layout.render("Tu espacio .dev.ar gratis", '
             <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url(\'assets/img/bg-showcase-1.jpg\')"></div>
             <div class="col-lg-6 order-lg-1 my-auto showcase-text">
                 <h2>¿Cómo funciona?</h2>
-                <p class="lead mb-0">Somos los dueños del dominio dev.ar, lo que hacemos es crear los subdominios para ustedes. Si esto quiere decir que no se puede usar con todos los proveedores pero si funciona con GitHub Pages, Vercel y muchos más.</p>
+                <p class="lead mb-0">Le brindamos un espacio bajo dev.ar, donde podras redirigir adonde quieras como un <a href="https://es.wikipedia.org/wiki/Acortador_de_URL">acortador de URL</a>. Además podrás configurar para que apunte a un servidor, si este lo soporta.</p>
             </div>
         </div>
         <div class="row g-0">
@@ -58,7 +58,7 @@ var html = Layout.render("Tu espacio .dev.ar gratis", '
 <!-- Testimonials-->
 <section class="testimonials text-center bg-light">
     <div class="container">
-        <h2 class="mb-5">Quienes estan usando nuestros dominios</h2>
+        <h2 class="mb-5">Quienes estan usando nuestros espacios</h2>
         <div class="row">
             <div class="col-lg-4">
                 <div class="testimonial-item mx-auto mb-5 mb-lg-0">
