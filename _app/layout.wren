@@ -90,7 +90,7 @@ class Layout {
             <div class="col-xl-6">
                 <div class="text-center text-white">
                     <!-- Page heading-->
-                    <h1 class="mb-5">Registra tu espacio .dev.ar</h1>
+                    <h1 class="mb-5">Reserva tu espacio .dev.ar</h1>
                     <form class="form-subscribe" action="/buscar">
                         <!-- Email address input-->
                         <div class="row">
