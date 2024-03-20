@@ -39,7 +39,7 @@ class Layout {
                         <ul class="list-inline mb-2">
                             <li class="list-inline-item"><a href="/">Buscar dominio</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="https://pragmore.com">Nosotros</a></li>
+                            <li class="list-inline-item"><a href="https://domains.pragmore.com" target="_blank"><strong>Dominios en venta</strong></a></li>
                             <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href="/terminos-y-condiciones">Términos y Condiciones</a></li>
                             <li class="list-inline-item">⋅</li>
