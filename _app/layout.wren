@@ -37,7 +37,7 @@ class Layout {
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="/">Buscar dominio</a></li>
+                            <li class="list-inline-item"><a href="/">Buscar espacios</a></li>
                             <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href="https://domains.pragmore.com" target="_blank"><strong>Dominios en venta</strong></a></li>
                             <li class="list-inline-item">⋅</li>
