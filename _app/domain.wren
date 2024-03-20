@@ -1,9 +1,9 @@
-import "bialet" for Db, Util, Session
+import "bialet" for Db, Util, Session, Config
 
 class Dominio {
   static init {
     // Configuración
-    __DOMINIOS_GRATIS = 1000
+    __DOMINIOS_GRATIS = Config.num("DOMINIOS_GRATIS")
     __SUFIJO = ".dev.ar"
     __MINIMO = 6
     __CARACTERES_PERMITIDOS = "abcdefghijklmnopqrstuvwxyz0123456789-"

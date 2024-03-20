@@ -31,3 +31,7 @@ Db.migrate("Agregar created", `
 Db.migrate("Agregar DNS", `
   ALTER TABLE dominios ADD COLUMN dns TEXT
 `)
+
+Db.migrate("Agregar config de dominios gratis", `
+  INSERT OR IGNORE INTO BIALET_CONFIG VALUES ("DOMINIOS_GRATIS", 1200)
+`)
