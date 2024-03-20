@@ -23,7 +23,7 @@ class Layout {
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="/">Dominios <strong>dev.ar</strong> gratis</a>
+                <a class="navbar-brand" href="/">Tu espacio <strong>dev.ar</strong> gratis</a>
                 %( Usuario.estaLogueado ?
                     '<a class="btn btn-secondary" href="/cerrar-sesion">Cerrar sesión</a>':
                     '<a class="btn btn-secondary" href="/iniciar-sesion">Iniciar sesión</a>'
@@ -124,7 +124,7 @@ class Layout {
 
   static bannerQuedan { Usuario.estaLogueado || (Dominio.quedan <= 0 || Dominio.quedan > 30) ? '' : '
     <div class="banner sticky-top alert alert-warning text-center" role="alert">
-      🔥 Quedan <strong>%( Dominio.quedan )</strong> dominios disponibles
+      🔥 Quedan <strong>%( Dominio.quedan )</strong> espacios disponibles
     </div>
   ' }
 

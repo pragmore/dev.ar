@@ -34,7 +34,7 @@ if (Request.isPost && !encontrado && valido && Dominio.quedan > 0) {
   }
 }
 
-var html = Layout.render("Buscar dominio %(q)", '
+var html = Layout.render("Buscar espacio %(q)", '
 
   %( Layout.headerBuscar(q) )
 
@@ -43,7 +43,7 @@ var html = Layout.render("Buscar dominio %(q)", '
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-xl-6">
-        <h2 class="alert alert-warning text-center" role="alert">El dominio se encuentra registrado o es inválido 😞</h2>
+        <h2 class="alert alert-warning text-center" role="alert">El espacio se encuentra registrado o es inválido 😞</h2>
         <p>Se permiten hasta %( Dominio.MINIMO ) caracteres, y sólo se aceptan los siguientes caracteres: <code>%( Dominio.CARACTERES_PERMITIDOS )</code></p>
       </div>
     </div>
@@ -56,7 +56,7 @@ var html = Layout.render("Buscar dominio %(q)", '
       <div class="col-xl-6">
         %( error.count > 0 ?
           error.map{|message| '<p class="alert alert-danger text-center lead" role="alert">%(message)</p>' }:
-          '<p class="alert alert-success text-center lead" role="alert">¡El dominio esta disponible! 🥳</p>'
+          '<p class="alert alert-success text-center lead" role="alert">¡El espacio esta disponible para reservar! 🥳</p>'
         )
       </div>
     </div>
@@ -66,7 +66,7 @@ var html = Layout.render("Buscar dominio %(q)", '
         <form method="POST">
           <div class="mb-3">
             <h1>
-              Registrar <strong class="text-secondary">%(q)</strong>
+              Reservar el espacio <strong class="text-secondary">%(q)</strong>
             </h1>
           </div>
           <div class="form-floating mb-3">
@@ -87,9 +87,9 @@ var html = Layout.render("Buscar dominio %(q)", '
         </form>
     </div>
     ' : '
-      <p class="text-center mt-2 fs-3">No contamos con cupo para registrarlo en este momento.</p>
-      <p class="text-center mt-2 fs-3">📣 Se aproxima una nueva tanda de dominios</p>
-      <p class="text-center mt-2 fs-3">Seguinos en <a href="https://twitter.com/pragmore" target="_blank">Twitter</a> y <a href="https://www.linkedin.com/company/pragmore/" target="_blank">LinkedIn</a> para ser tener tu dominio antes que nadie</p>
+      <p class="text-center mt-2 fs-3">No contamos con cupo para reservarlo en este momento.</p>
+      <p class="text-center mt-2 fs-3">📣 Se aproxima una nueva tanda de espacios</p>
+      <p class="text-center mt-2 fs-3">Seguinos en <a href="https://twitter.com/pragmore" target="_blank">Twitter</a> y <a href="https://www.linkedin.com/company/pragmore/" target="_blank">LinkedIn</a> para ser tenerlo antes que nadie</p>
     ')
   </div>
 </section>

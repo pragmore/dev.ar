@@ -10,7 +10,7 @@ var html = Layout.render("Terminos y condiciones de dev.ar", '
     ACEPTACIÓN DE LOS TÉRMINOS Y CONDICIONES
       </p>
       <p>
-Al registrar un subdominio a través de dev.ar, el usuario acepta en su totalidad estos Términos y Condiciones de Servicio. Si no está de acuerdo con estos términos, no utilice el servicio.
+Al registrar un espacio (subdominio) a través de dev.ar, el usuario acepta en su totalidad estos Términos y Condiciones de Servicio. Si no está de acuerdo con estos términos, no utilice el servicio.
       </p>
     </li>
     <li>
@@ -110,7 +110,7 @@ Estos Términos y Condiciones de Servicio se rigen por y se interpretan de acuer
         LIMITACIÓN DE SUBDOMINIOS
       </p>
       <p>
-        Cada usuario tiene derecho a registrar un único subdominio bajo dev.ar. Esta restricción busca garantizar la equidad y el acceso justo a los recursos disponibles.
+        Cada usuario tiene derecho a registrar un único espacio (subdominio) bajo dev.ar. Esta restricción busca garantizar la equidad y el acceso justo a los recursos disponibles.
       </p>
     </li>
     <li>
@@ -118,7 +118,7 @@ Estos Términos y Condiciones de Servicio se rigen por y se interpretan de acuer
         RESERVA DE DERECHOS POR PRAGMORE S.R.L.
       </p>
       <p>
-        Pragmore S.R.L. se reserva el derecho de cancelar o suspender cualquier subdominio registrado bajo dev.ar en cualquier momento y sin necesidad de proporcionar una justificación. Esta medida podrá tomarse en caso de que Pragmore S.R.L. detecte incumplimientos de los presentes Términos y Condiciones, uso indebido del servicio o por cualquier otra razón que Pragmore S.R.L. considere pertinente. Los usuarios serán notificados de dicha cancelación o suspensión en la medida de lo posible.
+        Pragmore S.R.L. se reserva el derecho de cancelar o suspender cualquier espacio (subdominio) registrado bajo dev.ar en cualquier momento y sin necesidad de proporcionar una justificación. Esta medida podrá tomarse en caso de que Pragmore S.R.L. detecte incumplimientos de los presentes Términos y Condiciones, uso indebido del servicio o por cualquier otra razón que Pragmore S.R.L. considere pertinente. Los usuarios serán notificados de dicha cancelación o suspensión en la medida de lo posible.
   </ol>
   <p>Fecha de última actualización: <em>20 de marzo de 2024</em>.</p>
 </div>
