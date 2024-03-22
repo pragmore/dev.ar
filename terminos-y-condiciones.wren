@@ -10,7 +10,14 @@ var html = Layout.render("Terminos y condiciones de dev.ar", '
     ACEPTACIÓN DE LOS TÉRMINOS Y CONDICIONES
       </p>
       <p>
-Al registrar un espacio (subdominio) a través de dev.ar, el usuario acepta en su totalidad estos Términos y Condiciones de Servicio. Si no está de acuerdo con estos términos, no utilice el servicio.
+        Se denomina espacios virtuales  (o espacio) al subdominio de la dirección dev.ar provisto por Pragmore S.R.L.
+      <p>
+Al registrar un espacio a través de dev.ar, el usuario acepta en su totalidad estos Términos y Condiciones de Servicio. Si no está de acuerdo con estos términos, no utilice el servicio.
+      </p>
+      <p>
+        <strong>
+          Dev.AR (este sitio) y Pragmore SRL (quién lo administra) no tienen ninguna relación o vínculo con la DIRECCIÓN NACIONAL DEL REGISTRO DE DOMINIOS DE INTERNET (NIC Argentina), único organismo encargado del registro y administración del Dominio de Nivel Superior Argentina (.AR)
+        </strong>
       </p>
     </li>
     <li>
@@ -45,7 +52,7 @@ Este punto incluye cualquier otra información que Pragmore S.R.L. considere ina
       </p>
       <p>
 
-        Para denunciar un servicio o subdominio que esté siendo utilizado para fines ilícitos, el canal de contacto es con nuestro Departamento de Investigación a través de: <a href="mailto:dev.ar@pragmore.com">dev.ar@pragmore.com</a>. El accionar en las denuncias recibidas estará sujeto a la evaluación y criterio exclusivo de Pragmore S.R.L.
+        Para denunciar un servicio que esté siendo utilizado para fines ilícitos, el canal de contacto es con nuestro Departamento de Investigación a través de: <a href="mailto:dev.ar@pragmore.com">dev.ar@pragmore.com</a>. El accionar en las denuncias recibidas estará sujeto a la evaluación y criterio exclusivo de Pragmore S.R.L.
 
       </p>
     </li>
@@ -107,10 +114,10 @@ Estos Términos y Condiciones de Servicio se rigen por y se interpretan de acuer
     </li>
     <li>
       <p>
-        LIMITACIÓN DE SUBDOMINIOS
+        LIMITACIÓN DE ESPACIOS VIRTUALES
       </p>
       <p>
-        Cada usuario tiene derecho a registrar un único espacio (subdominio) bajo dev.ar. Esta restricción busca garantizar la equidad y el acceso justo a los recursos disponibles.
+        Cada usuario tiene derecho a registrar un único espacio bajo dev.ar. Esta restricción busca garantizar la equidad y el acceso justo a los recursos disponibles.
       </p>
     </li>
     <li>
@@ -118,7 +125,8 @@ Estos Términos y Condiciones de Servicio se rigen por y se interpretan de acuer
         RESERVA DE DERECHOS POR PRAGMORE S.R.L.
       </p>
       <p>
-        Pragmore S.R.L. se reserva el derecho de cancelar o suspender cualquier espacio (subdominio) registrado bajo dev.ar en cualquier momento y sin necesidad de proporcionar una justificación. Esta medida podrá tomarse en caso de que Pragmore S.R.L. detecte incumplimientos de los presentes Términos y Condiciones, uso indebido del servicio o por cualquier otra razón que Pragmore S.R.L. considere pertinente. Los usuarios serán notificados de dicha cancelación o suspensión en la medida de lo posible.
+        Pragmore S.R.L. se reserva el derecho de cancelar o suspender cualquier espacio registrado bajo dev.ar en cualquier momento y sin necesidad de proporcionar una justificación. Esta medida podrá tomarse en caso de que Pragmore S.R.L. detecte incumplimientos de los presentes Términos y Condiciones, uso indebido del servicio o por cualquier otra razón que Pragmore S.R.L. considere pertinente. Los usuarios serán notificados de dicha cancelación o suspensión en la medida de lo posible.
+      </p>
   </ol>
   <p>Fecha de última actualización: <em>20 de marzo de 2024</em>.</p>
 </div>

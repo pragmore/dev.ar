@@ -56,7 +56,7 @@ var html = Layout.render("Dashboard", '
           <div class="container-fluid">
             <div class="row">
               <h1>
-                Tu dominio es: <strong class="text-secondary">%( dominio["fqdn"] )</strong>
+                Tu espacio es: <strong class="text-secondary">%( dominio["fqdn"] )</strong>
               </h1>
             </div>
             <div class="row mt-4">
@@ -64,7 +64,7 @@ var html = Layout.render("Dashboard", '
                 <h2>Redirección</h2>
                 <div class="form-floating mb-3">
                   <input type="text" name="redirect" class="form-control" id="redirect" value="%( dominio["redirect"] ?dominio["redirect"] : "" )" placeholder="https://ejemplo.com">
-                  <label for="redirect">URL donde redirecciona tu dominio</label>
+                  <label for="redirect">URL donde se redirecciona tu espacio</label>
                 </div>
                 <button class="btn btn-primary">Cambiar redirección</button>
               </form>
@@ -89,13 +89,12 @@ var html = Layout.render("Dashboard", '
       <div class="col-xl-6 offset-xl-2">
         <h2 class="text-center fs-1 alert alert-warning">⚠️ Leer atentamente!</h2>
         <ul class="fs-3">
-          <li>No son dominios, no hay servidores NS para configurar</li>
-          <li>No se permiten sub-subdominios (ej: <code>app.loquesea.dev.ar</code>)</li>
-          <li>Podés tener configurado la redireccion y el DNS de un dominio, siempre va a tener prioridad el DNS, en caso de no estar correctamente configurado se tomará la redirección</li>
+          <li>No hay que usar servidores NS para configurar</li>
+          <li>Podés tener configurado la redireccion y el DNS de un espacio, siempre va a tener prioridad el DNS, en caso de no estar correctamente configurado se tomará la redirección</li>
           <li>Los cambios de DNS pueden tardar hasta 48 horas</li>
           <li>Si pones una IP en DNS se creará un registro del tipo <code>A</code></li>
           <li>Si pones un dominio en DNS se creará un registro del tipo <code>CNAME</code></li>
-          <li>Para <strong>GitHub</strong> tenés que poner tu usuario en el dominio (ej: <code>roberto.github.io</code>), configurarlo desde Pages y asegurarte que exista el archivo <code>CNAME</code> en tu repositorio con el dominio. Lee atentamente la <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages" target="_blank">documentación de GitHub</a>.</li>
+          <li>Para <strong>GitHub</strong> tenés que poner tu usuario en el DNS (ej: <code>roberto.github.io</code>), configurarlo desde Pages y asegurarte que exista el archivo <code>CNAME</code> en tu repositorio con el dominio. Lee atentamente la <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages" target="_blank">documentación de GitHub</a>.</li>
           <li><strong>Los proveedores que piden una verifición de un registro <code>TXT</code> no estan disponibles por el momento (entre ellos Vercel y Google)</strong></li>
         </ul>
         <p>Si necesitas ayuda enviame un correo a <a href="mailto:albo@pragmore.com">albo@pragmore.com</a></p>

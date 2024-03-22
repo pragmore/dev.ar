@@ -50,7 +50,7 @@ var html = Layout.render("Tu espacio .dev.ar gratis", '
             <div class="col-lg-6 text-white showcase-img" style="background-image: url(\'assets/img/bg-showcase-3.jpg\')"></div>
             <div class="col-lg-6 my-auto showcase-text">
                 <h2>¿Por qué es gratis?</h2>
-                <p class="lead mb-0">El mantenimiento del dominio y la app no nos representa un costo elevado y creemos que todos tienen que tener un dominio propio. Si queres colaborar con nosotros podes seguirnos en nuestras redes y GitHub.</p>
+                <p class="lead mb-0">El proyecto no nos representa un costo elevado y creemos que todos tienen que tener un dominio propio. Si queres colaborar con nosotros podes seguirnos en nuestras redes y GitHub.</p>
             </div>
         </div>
     </div>

@@ -39,8 +39,6 @@ class Layout {
                         <ul class="list-inline mb-2">
                             <li class="list-inline-item"><a href="/">Buscar espacios</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="https://domains.pragmore.com" target="_blank"><strong>Dominios en venta</strong></a></li>
-                            <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href="/terminos-y-condiciones">Términos y Condiciones</a></li>
                             <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href="https://github.com/pragmore/dev.ar/issues">Reportar problema</a></li>
@@ -62,6 +60,13 @@ class Layout {
                                 <a href="https://www.linkedin.com/company/pragmore/"><i class="bi-linkedin fs-3"></i></a>
                             </li>
                         </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col h-100 flex-grow-1 text-center fs-3">
+                      <p class="mt-4">
+                        Dev.AR (este sitio) y Pragmore SRL (quién lo administra) no tienen ninguna relación o vínculo con la DIRECCIÓN NACIONAL DEL REGISTRO DE DOMINIOS DE INTERNET (NIC Argentina), único organismo encargado del registro y administración del Dominio de Nivel Superior Argentina (.AR)
+                      </p>
                     </div>
                 </div>
             </div>
