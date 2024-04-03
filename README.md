@@ -1,7 +1,7 @@
 dev.ar
 ======
 
-App para manejar los subdominios de **.dev.ar** hecha con [Bialet](https://bialet.org).
+App para manejar los subdominios de **.dev.ar** hecha con [Bialet](https://bialet.dev).
 
 Si queres tener un subdominio gratuito [create un usuario en la web](https://home.dev.ar).
 

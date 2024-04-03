@@ -46,7 +46,7 @@ class Layout {
                             <li class="list-inline-item"><a href="https://github.com/pragmore/dev.ar/issues">Reportar problema</a></li>
                         </ul>
                         <p class="text-muted small mb-4 mb-lg-0">
-                          Hecho en <a href="https://bialet.org">Bialet</a> por <a href="https://pragmore.com">Pragmore</a>.
+                          Hecho en <a href="https://bialet.dev">Bialet</a> por <a href="https://pragmore.com">Pragmore</a>.
                           Theme por <a href="https://startbootstrap.com/theme/landing-page">Start Bootstrap</a>.
                         </p>
                     </div>
