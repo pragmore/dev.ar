@@ -44,7 +44,7 @@ var html = Layout.render("Buscar espacio %(q)", '
     <div class="row justify-content-center">
       <div class="col-xl-6">
         <h2 class="alert alert-warning text-center" role="alert">El espacio se encuentra registrado o es inválido 😞</h2>
-        <p>Se permiten hasta %( Dominio.MINIMO ) caracteres, y sólo se aceptan los siguientes caracteres: <code>%( Dominio.CARACTERES_PERMITIDOS )</code></p>
+        <p>Se requiere un minimo de %( Dominio.MINIMO ) caracteres, y sólo se aceptan los siguientes caracteres: <code>%( Dominio.CARACTERES_PERMITIDOS )</code></p>
       </div>
     </div>
   </div>
