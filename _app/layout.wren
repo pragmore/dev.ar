@@ -17,6 +17,8 @@ class Layout {
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <!-- Seline Tracker -->
+        <script async src="https://cdn.seline.so/seline.js"></script>
     </head>
     <body class="d-flex flex-column h-100">
         %( bannerQuedan )
