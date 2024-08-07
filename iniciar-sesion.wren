@@ -33,6 +33,7 @@ var html = Layout.render("Iniciar sesión", '
         </div>
         <button type="submit" class="btn btn-primary">Iniciar sesión</button>
       </form>
+      <p class="mt-5 text-center alert alert-info" role="alert">Si te olvidaste la contraseña envianos un correo a albo arroba pragmore.com</p>
     </div>
   </div>
 </section>
