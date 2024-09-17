@@ -38,39 +38,38 @@ var html = Layout.render("Buscar espacio %(q)", '
 
   %( Layout.headerBuscar(q) )
 
-  %( encontrado || !valido ? '
+  %( encontrado || !valido ?
 <section class="features-icons bg-light text-center">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-xl-6">
         <h2 class="alert alert-warning text-center" role="alert">El espacio se encuentra registrado o es inválido 😞</h2>
-        <p>Se requiere un minimo de %( Dominio.MINIMO ) caracteres, y sólo se aceptan los siguientes caracteres: <code>%( Dominio.CARACTERES_PERMITIDOS )</code></p>
+        <p>Se requiere un minimo de {{ Dominio.MINIMO }} caracteres, y sólo se aceptan los siguientes caracteres: <code>{{ Dominio.CARACTERES_PERMITIDOS }}</code></p>
       </div>
     </div>
   </div>
-</section>
-  ' : '
+</section> :
 <section class="features-icons bg-light">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-xl-6">
-        %( error.count > 0 ?
-          error.map{|message| '<p class="alert alert-danger text-center lead" role="alert">%(message)</p>' }:
-          '<p class="alert alert-success text-center lead" role="alert">¡El espacio esta disponible para reservar! 🥳</p>'
-        )
+        {{ error.count > 0 ?
+          error.map{|message| <p class="alert alert-danger text-center lead" role="alert">{{ message }}</p> } :
+          <p class="alert alert-success text-center lead" role="alert">¡El espacio esta disponible para reservar! 🥳</p>
+        }}
       </div>
     </div>
-    %( Dominio.quedan > 0 ? '
-    <div class="row justify-content-center mt-4">
+    {{ Dominio.quedan > 0 ?
+    <main class="row justify-content-center mt-4">
       <div class="col-xl-6">
         <form method="POST">
           <div class="mb-3">
             <h1>
-              Reservar el espacio <strong class="text-secondary">%(q)</strong>
+              Reservar el espacio <strong class="text-secondary">{{ q }}</strong>
             </h1>
           </div>
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" name="email" id="email" placeholder="nombre@ejemplo.com" value="%( Request.post("email") )">
+            <input type="email" class="form-control" name="email" id="email" placeholder="nombre@ejemplo.com" value="{{ Request.post("email") }}">
             <label for="email">Correo electrónico</label>
           </div>
           <div class="form-floating mb-3">
@@ -78,21 +77,21 @@ var html = Layout.render("Buscar espacio %(q)", '
             <label for="password">Contraseña</label>
           </div>
           <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" name="terminos" %( Request.post("terminos") ? 'checked="checked"' : "")" id="terminos">
+            <input class="form-check-input" type="checkbox" name="terminos" {{ Request.post("terminos") && 'checked="checked"' }}" id="terminos">
             <label class="form-check-label" for="terminos">
               Acepto los <a href="/terminos-y-condiciones" target="_blank">términos y condiciones</a>
             </label>
           </div>
           <button type="submit" class="btn btn-primary">Crear cuenta</button>
         </form>
-    </div>
-    ' : '
+    </main> :
+    <main>
       <p class="text-center mt-2 fs-3">No contamos con cupo para reservarlo en este momento.</p>
       <p class="text-center mt-2 fs-3">📣 Se aproxima una nueva tanda de espacios</p>
       <p class="text-center mt-2 fs-3">Seguinos en <a href="https://twitter.com/pragmore" target="_blank">Twitter</a> y <a href="https://www.linkedin.com/company/pragmore/" target="_blank">LinkedIn</a> para ser tenerlo antes que nadie</p>
-    ')
+    </main> }}
   </div>
 </section>
-')
+)
 ')
 Response.out(html)

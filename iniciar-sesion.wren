@@ -16,13 +16,13 @@ if (Request.isPost) {
   }
 }
 
-var html = Layout.render("Iniciar sesión", '
+var html = Layout.render("Iniciar sesión",
 <section class="container" id="signup">
   <div class="row justify-content-center mt-4">
     <div class="col-xl-6">
       <h2 class="mb-4">Iniciar sesión</h2>
       <form method="post">
-        %( error ? '<p class="alert alert-error">El correo o la contraseña son incorrectos</p>' : '' )
+        {{ error && <p class="alert alert-danger">El correo o la contraseña son incorrectos</p> }}
         <div class="form-floating mb-3">
           <input type="email" name="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com">
           <label for="floatingInput">Correo electrónico</label>
@@ -37,5 +37,5 @@ var html = Layout.render("Iniciar sesión", '
     </div>
   </div>
 </section>
-')
+)
 Response.out(html)

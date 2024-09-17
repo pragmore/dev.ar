@@ -1,16 +1,16 @@
 import "_app/domain" for Usuario, Dominio
 
 class Layout {
-  static render(title, children) { '
-<!DOCTYPE html class="h-100" lang="es">
+  static render(title, children) { <!doctype html>
+  <html class="h-100" lang="es">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>%( title )</title>
+        <title>{{ title }}</title>
         <!-- Favicon-->
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 00 100 100\'><text y=\'.9em\' font-size=\'90\'>👩‍💻</text></svg>" />
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 00 100 100'><text y='.9em' font-size='90'>👩‍💻</text></svg>" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
         <!-- Google fonts-->
@@ -21,18 +21,18 @@ class Layout {
         <script async src="https://cdn.seline.so/seline.js"></script>
     </head>
     <body class="d-flex flex-column h-100">
-        %( bannerQuedan )
+        {{ bannerQuedan }}
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="/">Tu espacio <strong>dev.ar</strong> gratis</a>
-                %( Usuario.estaLogueado ?
-                    '<a class="btn btn-secondary" href="/cerrar-sesion">Cerrar sesión</a>':
-                    '<a class="btn btn-secondary" href="/iniciar-sesion">Iniciar sesión</a>'
-                  )
+               {{ Usuario.estaLogueado ?
+                    <a class="btn btn-secondary" href="/cerrar-sesion">Cerrar sesión</a> :
+                    <a class="btn btn-secondary" href="/iniciar-sesion">Iniciar sesión</a>
+               }}
             </div>
         </nav>
-        %( children )
+        {{ children }}
         <!-- Footer-->
         <footer class="footer bg-light mt-auto">
             <div class="container">
@@ -80,20 +80,9 @@ class Layout {
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
-</html>
-  ' }
+</html> }
 
-  static header(title) { '
-    <header>
-      <span><a href="/">👩‍💻 .dev.ar</a></span>
-      <h1>%( title )</h1>
-      %( Usuario.estaLogueado ? '<a href="/cerrar-sesion">Cerrar sesión</a>' : "" )
-    </header>
-  ' }
-
-  static headerBuscar(q) { '
-<!-- Masthead-->
-<header class="masthead">
+  static headerBuscar(q) { <header class="masthead">
     <div class="container position-relative">
         <div class="row justify-content-center">
             <div class="col-xl-6">
@@ -104,7 +93,7 @@ class Layout {
                         <!-- Email address input-->
                         <div class="row">
                             <div class="col">
-                                <input class="form-control form-control-lg" name="q" id="q" type="text" placeholder="loquequieras.dev.ar" value="%( q )" data-sb-validations="required" />
+                                <input class="form-control form-control-lg" name="q" id="q" type="text" placeholder="loquequieras.dev.ar" value="{{ q }}" data-sb-validations="required" />
                             </div>
                             <div class="col-auto"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Buscar</button></div>
                         </div>
@@ -119,22 +108,16 @@ class Layout {
                                 <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                             </div>
                         </div>
-                        <!-- Submit error message-->
-                        <!---->
-                        <!-- This is what your users will see when there is-->
-                        <!-- an error submitting the form-->
-                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</header>' }
+</header> }
 
-  static bannerQuedan { Usuario.estaLogueado || (Dominio.quedan <= 0 || Dominio.quedan > 30) ? '' : '
+  static bannerQuedan { Usuario.estaLogueado || (Dominio.quedan <= 0 || Dominio.quedan > 30) ? '' :
     <div class="banner sticky-top alert alert-warning text-center" role="alert">
-      🔥 Quedan <strong>%( Dominio.quedan )</strong> espacios disponibles
-    </div>
-  ' }
+      🔥 Quedan <strong>{{ Dominio.quedan }}</strong> espacios disponibles
+    </div> }
 
 }

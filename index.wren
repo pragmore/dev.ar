@@ -6,8 +6,9 @@ if (Usuario.estaLogueado) {
   return Response.redirect("/dashboard")
 }
 
-var html = Layout.render("Tu espacio .dev.ar gratis", '
-%( Layout.headerBuscar('') )
+var html = Layout.render("Tu espacio .dev.ar gratis",
+<main>
+{{ Layout.headerBuscar('') }}
 <!-- Icons Grid-->
 <section class="features-icons bg-light text-center">
     <div class="container">
@@ -40,14 +41,14 @@ var html = Layout.render("Tu espacio .dev.ar gratis", '
 <section class="showcase">
     <div class="container-fluid p-0">
         <div class="row g-0">
-            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url(\'assets/img/bg-showcase-1.jpg\')"></div>
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-1.jpg')"></div>
             <div class="col-lg-6 order-lg-1 my-auto showcase-text">
                 <h2>¿Cómo funciona?</h2>
                 <p class="lead mb-0">Le brindamos un espacio bajo dev.ar, donde podras redirigir adonde quieras como un <a href="https://es.wikipedia.org/wiki/Acortador_de_URL">acortador de URL</a>. Además podrás configurar para que apunte a un servidor, si este lo soporta.</p>
             </div>
         </div>
         <div class="row g-0">
-            <div class="col-lg-6 text-white showcase-img" style="background-image: url(\'assets/img/bg-showcase-3.jpg\')"></div>
+            <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-3.jpg')"></div>
             <div class="col-lg-6 my-auto showcase-text">
                 <h2>¿Por qué es gratis?</h2>
                 <p class="lead mb-0">El proyecto no nos representa un costo elevado y creemos que todos tienen que tener un dominio propio. Si queres colaborar con nosotros podes seguirnos en nuestras redes y GitHub.</p>
@@ -93,5 +94,6 @@ var html = Layout.render("Tu espacio .dev.ar gratis", '
         </div>
     </div>
 </section>
-')
+</main>
+)
 Response.out(html)

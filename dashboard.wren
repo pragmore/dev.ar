@@ -28,42 +28,41 @@ if (Request.isPost) {
     System.print("Cambiar DNS de %( dominio["fqdn"] ) a %( dominio["dns"] )")
     if (dominio["dns"].count > 0 && Dominio.guardar(dominio)) {
       if (Cloudflare.actualizarDns(dominio)) {
-        mensaje = '
-        <p class="alert alert-success" role="alert">DNS cambiado ✅</p>
-        <p class="alert alert-info" role="alert">📢 Recordá que <strong>los cambios pueden tardar hasta 48 horas</strong> en impactar.</p>'
+        mensaje = <div>
+          <p class="alert alert-success" role="alert">DNS cambiado ✅</p>
+          <p class="alert alert-info" role="alert">📢 Recordá que <strong>los cambios pueden tardar hasta 48 horas</strong> en impactar.</p>
+        </div>
       } else {
-        mensaje = '
+        mensaje = <div>
           <p class="alert alert-danger" role="alert">Error al actualizar el DNS ❌</p>
-          <p>Se guardó el DNS en nuestra base de datos, pero falló la actualización de Cloudflare. Por favor, intenta de nuevo en unos minutos. En caso de volver a fallar, <a href="mailto:albo@pragmore.com?subject=Fallo+DNS+%( dominio["fqdn"] )">mandanos un correo</a>.</p>
-        '
+          <p>Se guardó el DNS en nuestra base de datos, pero falló la actualización de Cloudflare. Por favor, intenta de nuevo en unos minutos. En caso de volver a fallar, <a href="mailto:albo@pragmore.com?subject=Fallo+DNS+{{ dominio["fqdn"] }}">mandanos un correo</a>.</p>
+        </div>
       }
     }
   }
 }
 
-var html = Layout.render("Dashboard", '
-<section class="features-icons bg-light">
-  <div class="container-fluid justify-content-center">
-    %( mensaje ? '
-    <div class="row px-4">
+var html = Layout.render("Dashboard",
+<section>
+  <div class="container-fluid justify-content-center px-4 mt-4">
+    {{ mensaje && <aside class="row px-4">
       <div class="col-xl-6 offset-xl-2">
-        %( mensaje )
+        {{ mensaje }}
       </div>
-    </div>
-    ' : '' )
-    <div class="row px-4 mt-4">
+    </aside> }}
+    <div class="row">
       <div class="col-xl-6 offset-xl-2">
           <div class="container-fluid">
             <div class="row">
               <h1>
-                Tu espacio es: <strong class="text-secondary">%( dominio["fqdn"] )</strong>
+                Tu espacio es: <strong class="text-secondary">{{ dominio["fqdn"] }}</strong>
               </h1>
             </div>
             <div class="row mt-4">
               <form method="post">
                 <h2>Redirección</h2>
                 <div class="form-floating mb-3">
-                  <input type="text" name="redirect" class="form-control" id="redirect" value="%( dominio["redirect"] ?dominio["redirect"] : "" )" placeholder="https://ejemplo.com">
+                  <input type="text" name="redirect" class="form-control" id="redirect" value="{{ dominio["redirect"] && dominio["redirect"] }}" placeholder="https://ejemplo.com">
                   <label for="redirect">URL donde se redirecciona tu espacio</label>
                 </div>
                 <button class="btn btn-primary">Cambiar redirección</button>
@@ -73,8 +72,8 @@ var html = Layout.render("Dashboard", '
               <form method="post">
                 <h2>DNS</h2>
                 <div class="form-floating mb-3">
-                  <input type="text" name="dns" class="form-control" id="dns" value="%( dominio["dns"] ?dominio["dns"] : "" )" placeholder="tu-usuario.github.io">
-                  <label for="dns">Dominio o IP donde %( dominio["fqdn"] ) esta alojado</label>
+                  <input type="text" name="dns" class="form-control" id="dns" value="{{  dominio["dns"] && dominio["dns"] }}" placeholder="tu-usuario.github.io">
+                  <label for="dns">Dominio o IP donde {{ dominio["fqdn"] }} esta alojado</label>
                 </div>
                 <button class="btn btn-primary">Actualizar DNS</button>
               </form>
@@ -101,6 +100,5 @@ var html = Layout.render("Dashboard", '
       </div>
     </div>
   </div>
-</section>
-')
+</section> )
 Response.out(html)
