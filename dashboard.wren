@@ -43,8 +43,8 @@ if (Request.isPost) {
 }
 
 // WTF!? Porque esta vacio pero con count 1?
-if (dominio["redireccion"].count == 1) {
-  dominio["redireccion"] = ""
+if (dominio["redirect"].count == 1) {
+  dominio["redirect"] = ""
 }
 if (dominio["dns"].count == 1) {
   dominio["dns"] = ""
