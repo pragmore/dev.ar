@@ -42,6 +42,11 @@ if (Request.isPost) {
   }
 }
 
+// WTF!? Porque esta vacio pero con count 1?
+if (dominio["dns"].count == 1) {
+  dominio["dns"] = ""
+}
+
 var html = Layout.render("Dashboard",
 <section>
   <div class="container-fluid justify-content-center px-4 mt-4">
@@ -72,7 +77,7 @@ var html = Layout.render("Dashboard",
               <form method="post">
                 <h2>DNS</h2>
                 <div class="form-floating mb-3">
-                  <input type="text" name="dns" class="form-control" id="dns" value="{{  dominio["dns"] && dominio["dns"] }}" placeholder="tu-usuario.github.io">
+                  <input type="text" name="dns" class="form-control" id="dns" value="{{ dominio["dns"] }}" placeholder="tu-usuario.github.io">
                   <label for="dns">Dominio o IP donde {{ dominio["fqdn"] }} esta alojado</label>
                 </div>
                 <button class="btn btn-primary">Actualizar DNS</button>

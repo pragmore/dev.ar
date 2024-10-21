@@ -4,19 +4,19 @@ class Layout {
   static render(title, children) { <!doctype html>
   <html class="h-100" lang="es">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
         <title>{{ title }}</title>
         <!-- Favicon-->
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 00 100 100'><text y='.9em' font-size='90'>👩‍💻</text></svg>" />
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 00 100 100'><text y='.9em' font-size='90'>👩‍💻</text></svg>">
         <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css">
         <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet">
         <!-- Seline Tracker -->
         <script async src="https://cdn.seline.so/seline.js"></script>
     </head>
@@ -93,7 +93,7 @@ class Layout {
                         <!-- Email address input-->
                         <div class="row">
                             <div class="col">
-                                <input class="form-control form-control-lg" name="q" id="q" type="text" placeholder="loquequieras.dev.ar" value="{{ q }}" data-sb-validations="required" />
+                                <input class="form-control form-control-lg" name="q" id="q" type="text" placeholder="loquequieras.dev.ar" value="{{ q }}" data-sb-validations="required">
                             </div>
                             <div class="col-auto"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Buscar</button></div>
                         </div>
