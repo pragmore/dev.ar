@@ -14,11 +14,11 @@ class Dominio {
   static findByFqdn(fqdn) { `SELECT * FROM dominios WHERE fqdn = ?`.first(fqdn.lower) }
   static findByUsuario(usuario) { `SELECT * FROM dominios WHERE usuario = ?`.fetch(usuario) }
   static delUsuarioLogueado { findByUsuario(Session.new().get("usuario")) }
-  static guardar(dominio){ Db.save("dominios", dominio) }
+  static guardar(dominio) { Db.save("dominios", dominio) }
   static total { Num.fromString(`SELECT COUNT(*) as total FROM dominios`.first()["total"]) }
   static quedan { __DOMINIOS_GRATIS - total }
   static normalizarDominio(dominio) { (dominio.endsWith(__SUFIJO) ? dominio : dominio + __SUFIJO).lower }
-  static normalizarDns(dns) { 
+  static normalizarDns(dns) {
     dns = dns.trim().lower
     if (dns.startsWith("http://")) {
       return dns.replace("http://", "")
