@@ -10,7 +10,6 @@ class Cloudflare {
       System.print("Dominio %(dominio["fqdn"]) (%(dominio["id"])) no encontró registros previos")
     }
     var response = Cloudflare.createRecord(dominio)
-    Cloudflare.createWwwRecord(dominio)
     System.print("Dominio %(dominio["fqdn"]): %( response )")
     return response["success"]
   }
