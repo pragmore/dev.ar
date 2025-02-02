@@ -14,6 +14,8 @@ class Cloudflare {
     return response["success"]
   }
 
+  static esGitHub(dominio) { dominio["dns"].contains("github.io") }
+
   static createRecord(domain) {
     var data = Json.stringify({
       "type": type(domain["dns"]),
@@ -21,7 +23,7 @@ class Cloudflare {
       "content": domain["dns"],
       "comment": "devar-app:%(domain["id"]):%(domain["fqdn"])",
       "ttl": 1, // automatic
-      "proxied": true
+      "proxied": !esGitHub(domain)
     })
     return Http.post(urlZoneRecords, data, options)
   }
