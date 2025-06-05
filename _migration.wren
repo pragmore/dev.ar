@@ -35,3 +35,22 @@ Db.migrate("Agregar DNS", `
 Db.migrate("Agregar config de dominios gratis", `
   INSERT OR IGNORE INTO BIALET_CONFIG VALUES ("DOMINIOS_GRATIS", 1200)
 `)
+
+Db.migrate("Agregar tabla de palabras prohibidas", `
+  CREATE TABLE palabras_prohibidas (
+    id INTEGER NOT NULL PRIMARY KEY,
+    palabra TEXT NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  )
+`)
+
+Db.migrate("Agregar palabras prohibidas iniciales", `
+  INSERT INTO palabras_prohibidas (palabra) VALUES 
+    ('banco'),
+    ('santander'),
+    ('galicia'),
+    ('bbva'),
+    ('icbc'),
+    ('bank'),
+    ('direct')
+`)

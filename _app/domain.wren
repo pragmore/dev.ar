@@ -28,6 +28,12 @@ class Dominio {
     }
     return dns
   }
+  static contienePalabraProhibida(dominio) {
+    return `SELECT EXISTS(
+      SELECT 1 FROM palabras_prohibidas 
+      WHERE ? LIKE '%' || palabra || '%'
+    )`.toBool(dominio)
+  }
   static valido(dominio) {
     if (dominio.count < __MINIMO + __SUFIJO.count) {
       return false
@@ -36,6 +42,9 @@ class Dominio {
       if (!__CARACTERES_PERMITIDOS.contains(caracter)) {
         return false
       }
+    }
+    if (contienePalabraProhibida(dominio)) {
+      return false
     }
     return true
   }
