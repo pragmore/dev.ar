@@ -1,4 +1,3 @@
-import "bialet" for Response
 import "_app/layout" for Layout
 
 var html = Layout.render("Terminos y condiciones de dev.ar",

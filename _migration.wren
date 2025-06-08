@@ -1,4 +1,3 @@
-import "bialet" for Db
 
 Db.migrate("Tabla usuarios", `
   CREATE TABLE usuarios (

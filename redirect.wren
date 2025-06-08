@@ -1,4 +1,3 @@
-import "bialet" for Response, Request
 import "_app/domain" for Dominio
 
 var fqdn = Request.get("fqdn")
