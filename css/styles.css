@@ -10882,6 +10882,10 @@ header.masthead h1, header.masthead .h1 {
   }
 }
 
+.bg-gradient-primary-to-secondary {
+  background: linear-gradient(135deg, #0061f2 0%, #6900c7 100%);
+}
+
 .testimonials {
   padding-top: 7rem;
   padding-bottom: 7rem;

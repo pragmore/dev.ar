@@ -36,6 +36,44 @@ var html = Layout.render("Tu espacio .dev.ar gratis",
         </div>
     </div>
 </section>
+<!-- Promo Mentoría -->
+<section id="mentoria" class="bg-gradient-primary-to-secondary text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mx-auto text-center">
+                <span class="badge bg-light text-primary mb-3">80% OFF - LANZAMIENTO</span>
+                <h2 class="mb-3">Mentoría Tech con Albo</h2>
+                <p class="lead mb-4">Mentoría personalizada para desarrolladores en crecimiento, seniors y Tech Leads. 20+ años de experiencia en la industria del software.</p>
+                <div class="row text-start mb-4">
+                    <div class="col-md-6 mb-3">
+                        <h5><i class="bi-check-circle-fill me-2"></i>¿Para quién?</h5>
+                        <ul class="small">
+                            <li>Devs en crecimiento</li>
+                            <li>Desarrolladores Senior</li>
+                            <li>Tech Leads en formación</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <h5><i class="bi-check-circle-fill me-2"></i>¿Qué incluye?</h5>
+                        <ul class="small">
+                            <li>Sesión 1:1 de 1 hora</li>
+                            <li>Follow-up post sesión</li>
+                            <li>Materiales personalizados</li>
+                            <li>Consultas asincrónicas</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <h4 class="mb-2">Precio de lanzamiento</h4>
+                    <p class="fs-3 fw-bold mb-0">USD $20 / ARS $30.000 <span class="fs-6 text-decoration-line-through opacity-75">USD $100</span></p>
+                </div>
+                <a class="btn btn-light btn-lg" href="https://mentor.dev.ar" target="_blank">
+                    <i class="bi-calendar-check me-2"></i>Reservar sesión
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Image Showcases-->
 <section class="showcase">
     <div class="container-fluid p-0">
