@@ -1,12 +1,12 @@
-import "_app/layout" for Layout
-import "_app/domain" for Dominio, Usuario
-import "_app/cloudflare" for Cloudflare
+import "/_app/layout" for Layout
+import "/_app/domain" for Dominio, Usuario
+import "/_app/cloudflare" for Cloudflare
 
 // Set plain text response
 Response.header("Content-Type", "text/plain")
 
 // Verificar que se proporcione la clave de administrador
-var adminKey = Request.get("key")
+var adminKey = Request.header("admin-key")
 var expectedKey = Config.get("ADMIN_KEY")
 
 if (!adminKey || adminKey != expectedKey) {
@@ -15,7 +15,7 @@ if (!adminKey || adminKey != expectedKey) {
 }
 
 // Obtener el FQDN del parámetro
-var fqdn = Request.get("fqdn")
+var fqdn = Request.post("fqdn")
 if (!fqdn) {
   System.log("Abuse intentado sin FQDN por administrador")
   return "ok"
@@ -28,7 +28,7 @@ fqdn = Dominio.normalizarDominio(fqdn)
 var dominio = Dominio.findByFqdn(fqdn)
 if (!dominio) {
   System.log("Abuse intentado en dominio %( fqdn ) no existente por administrador")
-  return "ok"
+  return "dominio don't exists"
 }
 
 var resultado = []

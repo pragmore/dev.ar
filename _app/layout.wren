@@ -1,4 +1,4 @@
-import "_app/domain" for Usuario, Dominio
+import "/_app/domain" for Usuario, Dominio
 
 class Layout {
   static render(title, children) { <!doctype html>
