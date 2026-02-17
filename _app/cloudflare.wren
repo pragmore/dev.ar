@@ -15,6 +15,18 @@ class Cloudflare {
 
   static esGitHub(dominio) { dominio["dns"].contains("github.io") }
 
+  static createTxtRecord(domain, name, content) {
+    var fullName = name.endsWith(domain["fqdn"]) ? name : "%(name).%(domain["fqdn"])"
+    var data = Json.stringify({
+      "type": "TXT",
+      "name": fullName,
+      "content": content,
+      "comment": "devar-app-txt:%(domain["id"]):%(domain["fqdn"]):%(name)",
+      "ttl": 1 // automatic
+    })
+    return Http.post(urlZoneRecords, data, options)
+  }
+
   static createRecord(domain) {
     var data = Json.stringify({
       "type": type(domain["dns"]),

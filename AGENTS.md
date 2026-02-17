@@ -162,6 +162,9 @@ Session.destroy()                          // Cerrar sesión
 | GET    | `/stats`                     | `stats.wren`                  | Estadísticas API (JSON)          | No   |
 | GET    | `/redirect?fqdn=...&uri=...` | `redirect.wren`               | Endpoint de redirección          | No   |
 | GET    | `/terminos-y-condiciones`    | `terminos-y-condiciones.wren` | Términos legales                 | No   |
+| POST   | `/admin/reset`               | `admin/reset.wren`            | Resetear contraseña de usuario   | Admin |
+| POST   | `/admin/abuse`               | `admin/abuse.wren`            | Deshabilitar dominio por abuse   | Admin |
+| POST   | `/admin/txt`                 | `admin/txt.wren`              | Agregar registro TXT a dominio   | Admin |
 
 ## Clases de Dominio
 
@@ -268,6 +271,14 @@ La aplicación integra con la API de Cloudflare para:
 
 - Crear registros DNS tipo A (para IPs)
 - Crear registros DNS tipo CNAME (para dominios)
+- Crear registros DNS tipo TXT (para verificación de dominio en Vercel, etc.)
+
+### Métodos de Cloudflare
+
+```wren
+Cloudflare.actualizarDns(dominio)                    // Actualizar A/CNAME
+Cloudflare.createTxtRecord(dominio, name, content)   // Crear registro TXT
+```
 
 Ver `_app/cloudflare.wren` para detalles de implementación.
 
