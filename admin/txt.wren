@@ -35,12 +35,14 @@ if (!dominio) {
 }
 
 // Crear el registro TXT en Cloudflare
+System.print("Creando TXT para %( fqdn ) - name: %( name ), content: %( content )")
 var response = Cloudflare.createTxtRecord(dominio, name, content)
+System.print("Respuesta de Cloudflare: %( response )")
 
-if (response["success"]) {
-  System.log("Registro TXT creado para %( fqdn ): %( name ) = %( content )")
+if (response && response["success"]) {
+  System.print("Registro TXT creado exitosamente: %( response["result"] )")
   return "ok"
 } else {
-  System.log("Error creando TXT para %( fqdn ): %( response )")
-  return "error: %( response["errors"] )"
+  System.print("Error creando TXT: %( response )")
+  return "error: %( response )"
 }
