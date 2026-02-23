@@ -17,6 +17,7 @@ class Cloudflare {
 
   static createTxtRecord(domain, name, content) {
     var fullName = name.endsWith(domain["fqdn"]) ? name : "%(name).%(domain["fqdn"])"
+    System.print("Creando TXT - domain[fqdn]: %(domain["fqdn"]), name: %(name), fullName: %(fullName)")
     var data = Json.stringify({
       "type": "TXT",
       "name": fullName,
@@ -24,6 +25,7 @@ class Cloudflare {
       "comment": "devar-app-txt:%(domain["id"]):%(domain["fqdn"]):%(name)",
       "ttl": 1 // automatic
     })
+    System.print("Enviando a Cloudflare: %(data)")
     return Http.post(urlZoneRecords, data, options)
   }
 
@@ -44,7 +46,9 @@ class Cloudflare {
     return createRecord(www)
   }
   static listRecords(domain) { Http.get(urlZoneRecords + "?comment.startswith=devar-app:%(domain["id"]):", options) }
+  static listTxtRecords(domain, name) { Http.get(urlZoneRecords + "?type=TXT&name=%(name).%(domain["fqdn"])", options) }
   static deleteRecord(record) { Http.delete("%(urlZoneRecords)/%(record)", options) }
+  static deleteRecordById(recordId) { Http.delete("%(urlZoneRecords)/%(recordId)", options) }
 
   static url(path) { "https://api.cloudflare.com/client/v4/%(path)" }
   static urlZoneRecords { url("zones/%( Config.get("CLOUDFLARE_ZONE_ID") )/dns_records") }

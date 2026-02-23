@@ -26,23 +26,36 @@ if (!fqdn || !name || !content) {
 
 // Normalizar el FQDN
 fqdn = Dominio.normalizarDominio(fqdn)
+System.print("fqdn normalizado: %(fqdn)")
 
 // Buscar el dominio
 var dominio = Dominio.findByFqdn(fqdn)
+System.print("dominio encontrado: %(dominio)")
 if (!dominio) {
   System.log("TXT intentado en dominio %( fqdn ) no existente por administrador")
   return "dominio don't exists"
 }
 
+// Buscar y eliminar registros TXT existentes con el mismo nombre
+System.print("Buscando registros TXT existentes para %( name ).%( fqdn )")
+var existingRecords = Cloudflare.listTxtRecords(dominio, name)
+System.print("Registros existentes: %( existingRecords )")
+
+if (existingRecords && existingRecords["success"] && existingRecords["result"]) {
+  existingRecords["result"].each { |record|
+    System.print("Eliminando registro existente: %( record["id"] ) - %( record["name"] )")
+    Cloudflare.deleteRecordById(record["id"])
+  }
+}
+
+// Debug info
+var debugInfo = "fqdn: %(fqdn), dominio[fqdn]: %(dominio["fqdn"])"
+
 // Crear el registro TXT en Cloudflare
-System.print("Creando TXT para %( fqdn ) - name: %( name ), content: %( content )")
 var response = Cloudflare.createTxtRecord(dominio, name, content)
-System.print("Respuesta de Cloudflare: %( response )")
 
 if (response && response["success"]) {
-  System.print("Registro TXT creado exitosamente: %( response["result"] )")
-  return "ok"
+  return "ok - %(debugInfo)"
 } else {
-  System.print("Error creando TXT: %( response )")
-  return "error: %( response )"
+  return "error: %( response ) - %(debugInfo)"
 }
