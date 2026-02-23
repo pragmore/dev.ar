@@ -17,25 +17,30 @@ var dominio = dominios[0]
 var mensaje
 if (Request.isPost) {
   if (Request.post("redirect")) {
-    // Verificar que no haya DNS configurado
-    if (dominio["dns"] && dominio["dns"].count > 1) {
+    var nuevoRedirect = Request.post("redirect").trim()
+    // Solo validar conflicto si se está configurando un valor (no al eliminar)
+    if (nuevoRedirect.count > 0 && dominio["dns"] && dominio["dns"].count > 1) {
       mensaje = <div>
         <p class="alert alert-danger" role="alert">❌ No se puede configurar la redirección</p>
         <p class="alert alert-warning">Ya tenés configurado el DNS (<code>{{ dominio["dns"] }}</code>). <strong>Solo podés tener una configuración activa a la vez.</strong><br><br>
         Si querés usar redirección, primero eliminá el DNS dejando el campo vacío y guardando.</p>
       </div>
     } else {
-      dominio["redirect"] = Request.post("redirect")
+      dominio["redirect"] = nuevoRedirect
       System.print("Cambiar redirect de %( dominio["fqdn"] ) a %( dominio["redirect"] )")
       if (Dominio.guardar(dominio)) {
-        mensaje = '<p class="alert alert-success" role="alert">Redireccion cambiada ✅</p>'
+        if (nuevoRedirect.count > 0) {
+          mensaje = '<p class="alert alert-success" role="alert">Redireccion cambiada ✅</p>'
+        } else {
+          mensaje = '<p class="alert alert-success" role="alert">Redireccion eliminada ✅</p>'
+        }
       }
     }
   }
   if (Request.post("dns")) {
-    var dnsNormalizado = Dominio.normalizarDns(Request.post("dns"))
+    var dnsNormalizado = Dominio.normalizarDns(Request.post("dns").trim())
     
-    // Verificar que no haya redirección configurada
+    // Solo validar conflicto si se está configurando un valor (no al eliminar)
     if (dnsNormalizado.count > 0 && dominio["redirect"] && dominio["redirect"].count > 1) {
       mensaje = <div>
         <p class="alert alert-danger" role="alert">❌ No se puede configurar el DNS</p>
@@ -59,13 +64,15 @@ if (Request.isPost) {
     } else {
       dominio["dns"] = dnsNormalizado
       System.print("Cambiar DNS de %( dominio["fqdn"] ) a %( dominio["dns"] )")
-      if (dominio["dns"].count > 0 && Dominio.guardar(dominio)) {
-        if (Cloudflare.actualizarDns(dominio)) {
+      if (Dominio.guardar(dominio)) {
+        if (dnsNormalizado.count > 0 && Cloudflare.actualizarDns(dominio)) {
           var tipoRegistro = Validator.esIp(dnsNormalizado) ? "A" : "CNAME"
           mensaje = <div>
             <p class="alert alert-success" role="alert">DNS cambiado ✅ (Registro tipo <strong>{{ tipoRegistro }}</strong>)</p>
             <p class="alert alert-info" role="alert">📢 Recordá que <strong>los cambios pueden tardar hasta 48 horas</strong> en impactar.</p>
           </div>
+        } else if (dnsNormalizado.count == 0) {
+          mensaje = '<p class="alert alert-success" role="alert">DNS eliminado ✅</p>'
         } else {
           mensaje = <div>
             <p class="alert alert-danger" role="alert">Error al actualizar el DNS ❌</p>
