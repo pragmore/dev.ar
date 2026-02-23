@@ -20,6 +20,9 @@ var name = Request.post("name")       // ej: _vercel
 var content = Request.post("content") // ej: vc-domain-verify=dieggo.dev.ar,3cfb267d...
 var root = Request.post("root")       // "1" para crear en dominio raíz (dev.ar)
 
+// Debug: loguear qué recibimos
+System.print("DEBUG - fqdn: %(fqdn), name: %(name), content: %(content), root: %(root)")
+
 if (!fqdn || !name || !content) {
   System.log("TXT intentado sin parámetros completos por administrador")
   return "faltan parametros: fqdn, name, content"
@@ -58,8 +61,11 @@ var debugInfo = "fqdn: %(fqdn), dominio[fqdn]: %(dominio["fqdn"])"
 // Crear el registro TXT en Cloudflare
 var response = Cloudflare.createTxtRecord(dominio, name, content)
 
+// Agregar info de debug a la respuesta para verificar
+var receivedInfo = "received[fqdn=%(fqdn), name=%(name), content=%(content)]"
+
 if (response && response["success"]) {
-  return "ok - %(debugInfo)"
+  return "ok - %(debugInfo) - %(receivedInfo)"
 } else {
-  return "error: %( response ) - %(debugInfo)"
+  return "error: %( response ) - %(debugInfo) - %(receivedInfo)"
 }

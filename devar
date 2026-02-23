@@ -1,0 +1,106 @@
+#!/bin/bash
+
+# Script devar para administración de dev.ar
+# Uso:
+#   devar abuse example.dev.ar
+#   devar reset user@example.com
+#   devar txt <dominio> <name> <content>
+#   devar vercel <dominio>,<token>
+
+ADMIN_KEY="3QVyl0UTh2ChEojNjnBs6I8w11HaxgFzNBOmL1Sg"
+BASE_URL="https://home.dev.ar"
+
+COMMAND=$1
+
+# Verificar que se proporcionen los argumentos necesarios según el comando
+case $COMMAND in
+    abuse)
+        if [ $# -lt 2 ]; then
+            echo "Uso: devar abuse <dominio>"
+            exit 1
+        fi
+        ;;
+    reset)
+        if [ $# -lt 2 ]; then
+            echo "Uso: devar reset <email>"
+            exit 1
+        fi
+        ;;
+    txt)
+        if [ $# -lt 4 ]; then
+            echo "Uso: devar txt <dominio> <name> <content>"
+            echo "Ejemplo: devar txt belenjesus.dev.ar _vercel 'vc-domain-verify=belenjesus.dev.ar,89674ed4e0eec7174c97'"
+            exit 1
+        fi
+        ;;
+    vercel)
+        if [ $# -lt 2 ]; then
+            echo "Uso: devar vercel <dominio>,<token>"
+            echo "Ejemplo: devar vercel dieggo.dev.ar,3cfb267d2800db107111"
+            exit 1
+        fi
+        ;;
+    *)
+        echo "Uso:"
+        echo "  devar abuse <dominio>"
+        echo "  devar reset <email>"
+        echo "  devar txt <dominio> <name> <content>"
+        echo "  devar vercel <dominio>,<token>"
+        exit 1
+        ;;
+esac
+
+case $COMMAND in
+    abuse)
+        echo "Ejecutando abuse para: $2"
+        curl -X POST \
+            --header "admin-key: $ADMIN_KEY" \
+            "$BASE_URL/admin/abuse" \
+            --data "fqdn=$2"
+        echo ""
+        ;;
+    
+    reset)
+        echo "Ejecutando reset para: $2"
+        curl -X POST \
+            --header "admin-key: $ADMIN_KEY" \
+            "$BASE_URL/admin/reset" \
+            --data "email=$2"
+        echo ""
+        ;;
+    
+    txt)
+        echo "Agregando registro TXT a: $2"
+        echo "  Name: $3"
+        echo "  Content: $4"
+        curl -X POST \
+            --header "admin-key: $ADMIN_KEY" \
+            "$BASE_URL/admin/txt" \
+            --data "fqdn=$2" \
+            --data "name=$3" \
+            --data "content=$4"
+        echo ""
+        ;;
+    
+    vercel)
+        # Parsear dominio y token (separados por coma)
+        DOMINIO=$(echo "$2" | cut -d',' -f1)
+        TOKEN=$(echo "$2" | cut -d',' -f2)
+        # Normalizar dominio (agregar .dev.ar si no lo tiene)
+        if [[ ! "$DOMINIO" == *".dev.ar" ]]; then
+            DOMINIO="${DOMINIO}.dev.ar"
+        fi
+        echo "Agregando verificación Vercel para: $DOMINIO"
+        echo "  Token: $TOKEN"
+        # URL-encode el contenido para evitar problemas con caracteres especiales
+        CONTENT="vc-domain-verify=$DOMINIO,$TOKEN"
+        curl -X POST \
+            --header "admin-key: $ADMIN_KEY" \
+            "$BASE_URL/admin/txt" \
+            --data-urlencode "fqdn=$DOMINIO" \
+            --data-urlencode "name=_vercel" \
+            --data-urlencode "content=$CONTENT" \
+            --data "root=1"
+        echo ""
+        ;;
+esac
