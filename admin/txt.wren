@@ -15,9 +15,10 @@ if (!adminKey || adminKey != expectedKey) {
 }
 
 // Obtener parámetros
-var fqdn = Request.post("fqdn")
+var fqdn = Request.post("fqdn")       // ej: dieggo.dev.ar
 var name = Request.post("name")       // ej: _vercel
-var content = Request.post("content") // ej: vc-domain-verify=belenjesus.dev.ar,89674ed4e0eec7174c97
+var content = Request.post("content") // ej: vc-domain-verify=dieggo.dev.ar,3cfb267d...
+var root = Request.post("root")       // "1" para crear en dominio raíz (dev.ar)
 
 if (!fqdn || !name || !content) {
   System.log("TXT intentado sin parámetros completos por administrador")
@@ -26,14 +27,17 @@ if (!fqdn || !name || !content) {
 
 // Normalizar el FQDN
 fqdn = Dominio.normalizarDominio(fqdn)
-System.print("fqdn normalizado: %(fqdn)")
 
 // Buscar el dominio
 var dominio = Dominio.findByFqdn(fqdn)
-System.print("dominio encontrado: %(dominio)")
 if (!dominio) {
   System.log("TXT intentado en dominio %( fqdn ) no existente por administrador")
   return "dominio don't exists"
+}
+
+// Si root=1, crear en el dominio raíz (dev.ar), sino en el subdominio
+if (root == "1") {
+  dominio["fqdn"] = "dev.ar"
 }
 
 // Buscar y eliminar registros TXT existentes con el mismo nombre
