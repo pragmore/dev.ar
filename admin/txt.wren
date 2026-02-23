@@ -43,18 +43,6 @@ if (root == "1") {
   dominio["fqdn"] = "dev.ar"
 }
 
-// Buscar y eliminar registros TXT existentes con el mismo nombre
-System.print("Buscando registros TXT existentes para %( name ).%( fqdn )")
-var existingRecords = Cloudflare.listTxtRecords(dominio, name)
-System.print("Registros existentes: %( existingRecords )")
-
-if (existingRecords && existingRecords["success"] && existingRecords["result"]) {
-  existingRecords["result"].each { |record|
-    System.print("Eliminando registro existente: %( record["id"] ) - %( record["name"] )")
-    Cloudflare.deleteRecordById(record["id"])
-  }
-}
-
 // Debug info
 var debugInfo = "fqdn: %(fqdn), dominio[fqdn]: %(dominio["fqdn"])"
 
