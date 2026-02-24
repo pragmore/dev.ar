@@ -63,10 +63,6 @@ var html = Layout.render("Tu espacio .dev.ar gratis",
                         </ul>
                     </div>
                 </div>
-                <div class="mb-4">
-                    <h4 class="mb-2">Precio de lanzamiento</h4>
-                    <p class="fs-3 fw-bold mb-0">USD $20 / ARS $30.000 <span class="fs-6 text-decoration-line-through opacity-75">USD $100</span></p>
-                </div>
                 <a class="btn btn-light btn-lg" href="https://mentor.dev.ar" target="_blank">
                     <i class="bi-calendar-check me-2"></i>Reservar sesión
                 </a>
