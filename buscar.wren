@@ -33,12 +33,9 @@ if (Request.isPost && !encontrado && valido && Dominio.quedan > 0) {
   }
 }
 
-var html = Layout.render("Buscar espacio %(q)", '
-
-  %( Layout.headerBuscar(q) )
-
-  %( encontrado || !valido ?
-<section class="features-icons bg-light text-center">
+var html = <article>
+ {{ Layout.headerBuscar(q) }}
+ {{ encontrado || !valido ? <section class="features-icons bg-light text-center">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-xl-6">
@@ -77,7 +74,7 @@ var html = Layout.render("Buscar espacio %(q)", '
             <label for="password">Contraseña</label>
           </div>
           <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" name="terminos" {{ Request.post("terminos") && 'checked="checked"' }}" id="terminos">
+            <input class="form-check-input" type="checkbox" name="terminos" {{ Request.post("terminos") && 'checked="checked"' }} id="terminos">
             <label class="form-check-label" for="terminos">
               Acepto los <a href="/terminos-y-condiciones" target="_blank">términos y condiciones</a>
             </label>
@@ -91,7 +88,7 @@ var html = Layout.render("Buscar espacio %(q)", '
       <p class="text-center mt-2 fs-3">Seguinos en <a href="https://twitter.com/pragmore" target="_blank">Twitter</a> y <a href="https://www.linkedin.com/company/pragmore/" target="_blank">LinkedIn</a> para ser tenerlo antes que nadie</p>
     </main> }}
   </div>
-</section>
-)
-')
-Response.out(html)
+</section> }}
+</article>
+
+return Layout.render("Buscar espacio %(q)", html)
